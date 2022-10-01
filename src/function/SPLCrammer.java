@@ -64,6 +64,7 @@ public class SPLCrammer{
         int COL = input.nextInt();
         System.out.println();
         double[][] Matrix = new double[ROW][COL];
+        double[] MatrixAns = new double[ROW];
         if (ROW != COL) {
             System.out.println("Tidak dapat diperoleh penyelesaian karena bukan matriks persegi!\n");
         }
@@ -76,12 +77,11 @@ public class SPLCrammer{
             }
             System.out.println();
             System.out.println("Masukkan matriks hasil (gunakan enter untuk pindah baris): ");
-            double[] MatAns = new double[ROW];
             for (int i = 0; i < MatAns.length; i++) {
-                MatAns[i] = input.nextInt();
+                MatrixAns[i] = input.nextInt();
             }
             System.out.println();
-            Crammer(Matrix, MatAns);
+            Crammer(Matrix, MatrixAns);
         }
     }
 }

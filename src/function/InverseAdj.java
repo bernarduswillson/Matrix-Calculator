@@ -1,5 +1,6 @@
 import java.util.Scanner;
 public class InverseAdj{
+    // USABLE
     static double Determinant(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
@@ -108,6 +109,7 @@ public class InverseAdj{
         }
         return mOut;
     }
+    // *USABLE
 
     static void PrintInverse(double[][] Mat) {
         int ROW = Mat.length;
