@@ -39,7 +39,7 @@ public class SPLCrammer{
             System.exit(0);
         }
         else {
-            System.out.println("Solusi SPL dengan metode Crammer: ");
+            System.out.println("Solusi SPL dengan metode CRAMMER: ");
             for (int i = 0; i < ROW; i++) {
                 for (int j = 0; j < ROW; j++) {
                     for (int k = 0; k < COL; k++) {

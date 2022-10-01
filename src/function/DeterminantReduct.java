@@ -41,7 +41,7 @@ public class DeterminantReduct {
     public void PrintEselon(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
-        System.out.println("Hasil matriks setelah direduksi adalah: ");
+        System.out.println("Hasil matriks setelah direduksi: ");
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
                 System.out.printf("%.3f ", Mat[i][j]);
