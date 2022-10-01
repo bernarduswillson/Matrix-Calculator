@@ -92,6 +92,7 @@ public class SPLGauss {
         System.out.println("Masukkan elemen matriks jawaban (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
         for (int i = 0; i < ROW; i++)
             MatrixAns[i] = input.nextDouble();
+        System.out.println();
         ge.Gauss(Matrix, MatrixAns);
     }
 }
