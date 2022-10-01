@@ -60,7 +60,27 @@ public class Menu
         }
         switch (choice) {
             case 1:
-                menuSPL()
+                splMenu()
+                break;
+            case 2:
+                detMenu();
+                break;
+            case 3:
+                invMenu();
+                break;
+
+            // case 4-6 gaada menu kan ya? lgsg fungsinya?
+            case 4:
+                polyMenu();
+                break;
+            case 5:
+                bicubicMenu();
+                break;
+            case 6:
+                regMenu();
+                break;
+            case 7:
+                exit();
                 break;
             default:
                 break;
@@ -80,4 +100,7 @@ public class Menu
 
     }
     public static void backToMenu ()
+    {
+
+    }
 }
