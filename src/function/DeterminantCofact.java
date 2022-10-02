@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class DeterminantCofact {
-    static double Determinant(double[][] Mat) {
+    static double DeterminantC(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         if (ROW == 1) {
@@ -20,7 +20,7 @@ public class DeterminantCofact {
                         }
                     }
                 }
-                Determinant += Mat[0][i]*Math.pow(-1,i)*Determinant(subMatrix);
+                Determinant += Mat[0][i]*Math.pow(-1,i)*DeterminantC(subMatrix);
             }
             return Determinant;
         }
@@ -29,7 +29,7 @@ public class DeterminantCofact {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM DETERMINAN KOFAKTOR\n");
-        System.out.println("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
         System.out.println();
@@ -40,12 +40,12 @@ public class DeterminantCofact {
         else {
             System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
             for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) { //kalo input kelebihan 1 belom ada eror handlingnya
+                for (int j = 0; j < COL; j++) {
                     Matrix[i][j] = input.nextDouble();
                 }
             }
             System.out.println();
-            System.out.printf("Hasil determinan menggunakan KOFAKTOR: %.3f\n", Determinant(Matrix));
+            System.out.printf("Hasil determinan menggunakan KOFAKTOR: %.3f\n", DeterminantC(Matrix));
         }
     }
 }

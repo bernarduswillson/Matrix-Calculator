@@ -1,40 +1,15 @@
 import java.util.Scanner;
 public class SPLCrammer{
-    static double Determinant(double[][] Mat) {
-        int ROW = Mat.length;
-        int COL = Mat[0].length;
-        if (ROW == 1) {
-            return Mat[0][0];
-        }
-        else {
-            double Determinant = 0;
-            for (int i = 0; i < ROW; i++) {
-                double[][] subMatrix = new double[ROW-1][COL-1];
-                for (int j = 0; j < ROW-1; j++) {
-                    for (int k = 0; k < COL-1; k++) {
-                        if (k < i) {
-                            subMatrix[j][k] = Mat[j+1][k];
-                        }
-                        else {
-                            subMatrix[j][k] = Mat[j+1][k+1];
-                        }
-                    }
-                }
-                Determinant += Mat[0][i]*Math.pow(-1,i)*Determinant(subMatrix);
-            }
-        return Determinant;
-        }  
-    }
-
     static void Crammer(double[][] Mat, double[] MatAns) {
+        DeterminantCofact Det = new DeterminantCofact();
         int ROW = Mat.length;
         int COL = Mat[0].length;
         double[][] subMatrix = new double[ROW][COL];
-        double Determinant = Determinant(Mat);
+        double Determinant = Det.DeterminantC(Mat);
         if (ROW != COL) {
             System.out.println("Tidak dapat diperoleh penyelesaian karena bukan matriks persegi!\n");
         }
-        else if (Determinant(Mat) == 0) {
+        else if (Det.DeterminantC(Mat) == 0) {
             System.out.println("Tidak dapat diperoleh penyelesaian karena determinannya 0!");
             System.exit(0);
         }
@@ -51,15 +26,14 @@ public class SPLCrammer{
                         }
                     }                  
                 }
-            System.out.printf("X"+(i+1)+" = %.3f\n", (Determinant(subMatrix)/Determinant));
+            System.out.printf("X"+(i+1)+" = %.4f\n", (Det.DeterminantC(subMatrix)/Determinant));
             }
         }
     }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM SPL CRAMMER\n");
-        System.out.println("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
         System.out.println();
@@ -72,13 +46,13 @@ public class SPLCrammer{
             System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
             for (int i = 0; i < Matrix.length; i++) {
                 for (int j = 0; j < Matrix[i].length; j++) {
-                    Matrix[i][j] = input.nextInt();
+                    Matrix[i][j] = input.nextDouble();
                 }
             }
             System.out.println();
             System.out.println("Masukkan matriks hasil (gunakan enter untuk pindah baris): ");
             for (int i = 0; i < MatrixAns.length; i++) {
-                MatrixAns[i] = input.nextInt();
+                MatrixAns[i] = input.nextDouble();
             }
             System.out.println();
             Crammer(Matrix, MatrixAns);

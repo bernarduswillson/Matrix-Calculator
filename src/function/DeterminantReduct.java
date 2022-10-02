@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class DeterminantReduct {
-    public void Determinant(double[][] Mat) {
+    static void DeterminantR(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         int P = 0;
@@ -38,7 +38,7 @@ public class DeterminantReduct {
         System.out.printf("Hasil determinan menggunakan REDUKSI: %.3f\n", Determinant*Math.pow(-1,P));
     }
 
-    public void PrintEselon(double[][] Mat) {
+    static void PrintEselon(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         System.out.println("Hasil matriks setelah direduksi: ");
@@ -54,8 +54,7 @@ public class DeterminantReduct {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM DETERMINAN REDUKSI\n");
-        DeterminantReductMtd ge = new DeterminantReductMtd();
-        System.out.println("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
         System.out.println();
@@ -66,12 +65,12 @@ public class DeterminantReduct {
         else {
             System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
             for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) { //kalo input kelebihan 1 belom ada eror handlingnya
+                for (int j = 0; j < COL; j++) {
                     Matrix[i][j] = input.nextDouble();
                 }
             }
         }
         System.out.println();
-        ge.Determinant(Matrix);
+        DeterminantR(Matrix);
     }
 }

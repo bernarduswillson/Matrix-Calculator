@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class SPLGauss {
-    public void Gauss(double[][] Mat, double[] MatAns) {
+    static void ForwardOBE(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         for (int i = 0; i < ROW; i++) {
@@ -52,7 +52,7 @@ public class SPLGauss {
         PrintSolution(Solution);
     }
 
-    public void PrintEselon(double[][] Mat, double[] MatAns) {
+    static void PrintEselon(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         System.out.println("Hasil matriks setelah menggunakan GAUSS: ");
@@ -64,12 +64,12 @@ public class SPLGauss {
         }
     }
 
-    public void PrintSolution(double[] Sol) {
+    static void PrintSolution(double[] Sol) {
         int ROW = Sol.length;
         System.out.println("Solusi SPL dengan metode GAUSS: ");
         for (int i = 0; i < ROW; i++) {
             System.out.print("X"+(i+1)+" = ");
-            System.out.printf("%.3f\n", Sol[i]);
+            System.out.printf("%.4f\n", Sol[i]);
         }
         System.out.println();     
     }
@@ -77,7 +77,6 @@ public class SPLGauss {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM ELIMINASI GAUSS\n");
-        SPLGauss ge = new SPLGauss();
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
@@ -93,6 +92,6 @@ public class SPLGauss {
         for (int i = 0; i < ROW; i++)
             MatrixAns[i] = input.nextDouble();
         System.out.println();
-        ge.Gauss(Matrix, MatrixAns);
+        ForwardOBE(Matrix, MatrixAns);
     }
 }

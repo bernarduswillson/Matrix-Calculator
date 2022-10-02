@@ -1,37 +1,7 @@
 import java.util.Scanner;
 public class InverseAdj{
-    // USABLE
-    static double Determinant(double[][] Mat) {
-        int ROW = Mat.length;
-        int COL = Mat[0].length;
-        if (ROW == 1) {
-            return Mat[0][0];
-        }
-        else {
-            double Determinant = 0;
-            for (int i = 0; i < ROW; i++) {
-                double[][] subMatrix = new double[ROW-1][COL-1];
-                for (int j = 0; j < ROW-1; j++) {
-                    for (int k = 0; k < COL-1; k++) {
-                        if (k < i) {
-                            subMatrix[j][k] = Mat[j+1][k];
-                        }
-                        else {
-                            subMatrix[j][k] = Mat[j+1][k+1];
-                        }
-                    }
-                }
-                Determinant += Mat[0][i]*Math.pow(-1,i)*Determinant(subMatrix);
-            }
-            if (Determinant == 0) {
-                System.out.println("Matriks tidak memiliki invers karena determinannya 0!");
-                System.exit(0);
-            }
-        return Determinant;
-        }  
-    }
-
     static double[][] Cofactor(double[][] Mat) {
+        DeterminantCofact Det = new DeterminantCofact();
         int ROW = Mat.length;
         int COL = Mat[0].length;
         double[][] Cofactor = new double[ROW][COL];
@@ -63,7 +33,7 @@ public class InverseAdj{
                             }
                         }
                     }
-                    Cofactor[i][j] = (double)Math.pow(-1,i+j)*Determinant(subMatrix);
+                    Cofactor[i][j] = (double)Math.pow(-1,i+j)*Det.DeterminantC(subMatrix);
                 }
             }
             return Cofactor;
@@ -84,6 +54,7 @@ public class InverseAdj{
     }
 
     static double[][] Inverse(double[][] Mat) {
+        DeterminantCofact Det = new DeterminantCofact();
         int ROW = Mat.length;
         int COL = Mat[0].length;
         double[][] Inverse = new double[ROW][COL];
@@ -93,7 +64,7 @@ public class InverseAdj{
         }
         else {
             double[][] Cofactor = Cofactor(Mat);
-            Inverse = MultiplyByConst(Transpose(Cofactor),(1/Determinant(Mat)));
+            Inverse = MultiplyByConst(Transpose(Cofactor),(1/Det.DeterminantC(Mat)));
             return Inverse;
         }
     }
@@ -109,8 +80,7 @@ public class InverseAdj{
         }
         return mOut;
     }
-    // *USABLE
-
+    
     static void PrintInverse(double[][] Mat) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
@@ -126,7 +96,7 @@ public class InverseAdj{
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM INVERS ADJOIN\n");
-        System.out.println("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
         System.out.println();

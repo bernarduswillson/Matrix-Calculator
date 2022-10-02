@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class InverseReduct {
-    public void Gauss(double[][] Mat, double[][] MatAns) {
+    static void ForwardOBE(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         for (int i = 0; i < ROW; i++) {
@@ -42,7 +42,7 @@ public class InverseReduct {
         }
     }
 
-    public void GaussJordan(double[][] Mat, double[][] MatAns) {
+    static void BackwardOBE(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
         for (int i = ROW - 1; i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
@@ -56,7 +56,7 @@ public class InverseReduct {
         PrintEselon(Mat, MatAns);
     }
     
-    public void PrintEselon(double[][] Mat, double[][] MatAns) {
+    static void PrintEselon(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
         int COL = Mat[0].length;
         System.out.println("Hasil matriks setelah di-REDUKSI: ");
@@ -75,8 +75,7 @@ public class InverseReduct {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM INVERS REDUKSI\n");
-        InverseReduct ge = new InverseReduct();
-        System.out.println("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
         int ROW = input.nextInt();
         int COL = input.nextInt();
         System.out.println();
@@ -104,8 +103,8 @@ public class InverseReduct {
             }
         }
         System.out.println();
-        ge.Gauss(Matrix, IdentityMat);
-        ge.GaussJordan(Matrix, IdentityMat);
+        ForwardOBE(Matrix, IdentityMat);
+        BackwardOBE(Matrix, IdentityMat);
         System.out.println();
         System.out.println("Hasil invers matriks menggunakan REDUKSI: ");
         for (int i = 0; i < ROW; i++) {
