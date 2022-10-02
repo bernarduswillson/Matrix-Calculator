@@ -1,7 +1,7 @@
+package function;
 import java.util.*;
-public class Menu 
+public class menu
 {
-    
     public static void main(String[] args) 
     {
         //int choice = 0;
