@@ -77,7 +77,7 @@ public class SPLCrammer{
             }
             System.out.println();
             System.out.println("Masukkan matriks hasil (gunakan enter untuk pindah baris): ");
-            for (int i = 0; i < MatAns.length; i++) {
+            for (int i = 0; i < MatrixAns.length; i++) {
                 MatrixAns[i] = input.nextInt();
             }
             System.out.println();

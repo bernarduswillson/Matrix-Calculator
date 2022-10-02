@@ -69,7 +69,7 @@ public class SPLGaussJordan {
             for (int j = 0; j < COL; j++) {
                 System.out.printf("%.3f\t ", Mat[i][j]);
             }
-            System.out.printf("| %.3f\n", MatAns[i]);
+            System.out.printf("  |\t%.3f\n", MatAns[i]);
         }
     }
 

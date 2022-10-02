@@ -117,7 +117,7 @@ public class InverseAdj{
         System.out.println("Hasil invers matriks menggunakan ADJOIN: ");
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
-                System.out.printf("%.3f ", Mat[i][j]);
+                System.out.printf("%.3f\t", Mat[i][j]);
             }
             System.out.println();
         }

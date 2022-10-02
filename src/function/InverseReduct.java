@@ -16,7 +16,7 @@ public class InverseReduct {
                     MatAns[Max] = temp;
                     for (int k = i + 1; k < ROW; k++) {
                         double Const = Mat[k][i] / Mat[i][i];
-                        for (int l = i; l < COL; l++){
+                        for (int l = 0; l < COL; l++){
                             Mat[k][l] -= Const * Mat[i][l];
                             MatAns[k][l] -= Const * MatAns[i][l];
                         }       
@@ -25,7 +25,7 @@ public class InverseReduct {
                 else {
                     for (int k = i + 1; k < ROW; k++) {
                         double Const = Mat[k][i] / Mat[i][i];
-                        for (int l = i; l < COL; l++){
+                        for (int l = 0; l < COL; l++){
                             Mat[k][l] -= Const * Mat[i][l];
                             MatAns[k][l] -= Const * MatAns[i][l];
                         }       
@@ -45,9 +45,9 @@ public class InverseReduct {
     public void GaussJordan(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
         for (int i = ROW - 1; i >= 0; i--) {
-            for (int j = i-1; j >= 0; j--) {
+            for (int j = i - 1; j >= 0; j--) {
                 double Const = Mat[j][i] / Mat[i][i];
-                for (int k = i; k >= 0; k--) {
+                for (int k = ROW-1; k >= 0; k--) {
                     Mat[j][k] -= Const * Mat[i][k];
                     MatAns[j][k] -= Const * MatAns[i][k];
                 } 
@@ -62,7 +62,7 @@ public class InverseReduct {
         System.out.println("Hasil matriks setelah di-REDUKSI: ");
         for (int i = 0; i < ROW; i++) {
             for (int j = 0; j < COL; j++) {
-                System.out.printf("%.3f\t ", Mat[i][j]);
+                System.out.printf("%.3f\t", Mat[i][j]);
             }
             System.out.print("  |\t");
             for (int j = 0; j < COL; j++) {
