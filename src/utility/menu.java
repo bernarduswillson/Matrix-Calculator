@@ -1,5 +1,6 @@
-package function;
+package utility;
 import java.util.*;
+import function.*;
 public class menu
 {
     public static void main(String[] args) 
@@ -74,7 +75,7 @@ public class menu
                 polyMenu();
                 break;
             case 5:
-                bicubicMenu();
+                BicubicInterpolate bicubicMenu();
                 break;
             case 6:
                 regMenu();

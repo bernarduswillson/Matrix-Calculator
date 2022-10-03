@@ -1,3 +1,4 @@
+package function;
 import java.util.Scanner;
 public class DeterminantCofact {
     static double DeterminantC(double[][] Mat) {
@@ -26,7 +27,7 @@ public class DeterminantCofact {
         }
     }
 
-    public static void main(String[] args) {
+    public static void functionDetCofact() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM DETERMINAN KOFAKTOR\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");

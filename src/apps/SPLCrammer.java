@@ -1,4 +1,6 @@
+package function;
 import java.util.Scanner;
+
 public class SPLCrammer{
     static void Crammer(double[][] Mat, double[] MatAns) {
         DeterminantCofact Det = new DeterminantCofact();
@@ -30,7 +32,7 @@ public class SPLCrammer{
             }
         }
     }
-    public static void main(String[] args) {
+    public static void functionSPLCrammer() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM SPL CRAMMER\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");

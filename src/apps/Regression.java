@@ -39,7 +39,7 @@ public class Regression
                         }
                         else
                         {
-                            matriks[i][j] = ;
+                            matriks[i][j] = rowcol;
                         }
                     }
                     else

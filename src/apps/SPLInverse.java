@@ -12,7 +12,7 @@ public class SPLInverse {
         return mOut;
     }
 
-    public static void main(String[] args) {
+    public static void functionSPLInverse() {
         Scanner input = new Scanner(System.in);
         InverseAdj inv = new InverseAdj();
         System.out.println("PROGRAM SPL INVERS\n");
