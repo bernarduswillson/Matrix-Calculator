@@ -1,12 +1,27 @@
 import java.io.*;
 import java.util.*;
 
-public class inputMatrix {
-    public static double[][] readFile() throws Exception
+public class inputMatrix 
+{
+    public static void main(String[] args) throws Exception 
     {
-        try {
+        readFile();
+    }
+
+    public static void inputMenu() 
+    {
+        System.out.println("1. Input manual");
+        System.out.println("2. Input dari file");
+        System.out.println("3. Kembali ke menu utama");
+        System.out.print("Pilihan: ");
+    }
+
+    public static void readFile() throws Exception
+    {
+        try 
+        {
             // input file
-            System.out.println("Masukkan nama file (contoh: bernard.java): ");
+            System.out.println("Masukkan nama file (contoh: bernard.txt): ");
             Scanner input = new Scanner(System.in);
             String fileName = input.nextLine();
 
@@ -17,13 +32,14 @@ public class inputMatrix {
             }
             
             // update path
-            String path = System.getProperty(fileName);
+            String path = System.getProperty("user.dir") + "/" + fileName;
             System.out.println(path);
             File file = new File(path);
             Scanner fileContent = new Scanner(file);
 
             // hitung row, col
-            int col = 0, row = 0;
+            int col = 0;
+            int row = 0;
             while (fileContent.hasNextLine()) 
             {
                 String lineKotor = fileContent.nextLine();
@@ -33,6 +49,9 @@ public class inputMatrix {
             }
             fileContent.close();
             
+            System.out.println("row: " + row);
+            System.out.println("col: " + col);
+
             // input matrix
             double[][] Matrix = new double[row][col];
             Scanner fileMatrix = new Scanner(file);
@@ -47,12 +66,22 @@ public class inputMatrix {
                 }
             }
             fileMatrix.close();
-            return Matrix;
+            //return Matrix;
+            for (int i = 0; i < row; i++) 
+            {
+                for (int j = 0; j < col; j++) 
+                {
+                    System.out.printf("%.3f\t", Matrix[i][j]);
+                }
+                System.out.println();
+            }
         }
 
-        catch (FileNotFoundException e) {
+        catch (FileNotFoundException e) 
+        {
             System.out.println("File tidak ditemukan!");
-            return new double[0][0];
+            //return new double[0][0];
         }
-    }
+    } 
 }
+
