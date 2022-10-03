@@ -1,4 +1,6 @@
+package function;
 import java.util.Scanner;
+
 public class InverseReduct {
     static void ForwardOBE(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
@@ -71,7 +73,7 @@ public class InverseReduct {
         }
     }
 
-    public static void main(String[] args) {
+    public static void functionInverseReduct() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM INVERS REDUKSI\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");

@@ -74,7 +74,7 @@ public class SPLGauss {
         System.out.println();     
     }
 
-    public static void main(String[] args) {
+    public static void functionSPLGauss() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM ELIMINASI GAUSS\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");

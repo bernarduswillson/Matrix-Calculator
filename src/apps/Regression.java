@@ -41,7 +41,11 @@ public class Regression
                         }
                         else
                         {
+<<<<<<< HEAD:src/function/Regression.java
                             temp += matriks[k][j];
+=======
+                            matriks[i][j] = rowcol;
+>>>>>>> 30ab9b76f4b402f3992218ea134666c4044915c6:src/apps/Regression.java
                         }
                     }
                     else

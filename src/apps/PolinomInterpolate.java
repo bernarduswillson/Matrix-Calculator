@@ -1,6 +1,8 @@
+package function;
 import java.util.Scanner;
+
 public class PolinomInterpolate {
-    public static void main(String[] args) {
+    public static void functionPolinomInterpolate() {
         Scanner input = new Scanner(System.in);
         SPLGauss obe1 = new SPLGauss();
         SPLGaussJordan obe2 = new SPLGaussJordan();

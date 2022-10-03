@@ -51,7 +51,7 @@ public class DeterminantReduct {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static void functionDetReduct() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM DETERMINAN REDUKSI\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
