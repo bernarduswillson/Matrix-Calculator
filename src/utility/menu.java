@@ -81,7 +81,7 @@ public class menu
                 BicubicInterpolate.functionBicubicInterpolate();
                 break;
             case 6:
-                regMenu();
+                //regMenu();
                 break;
             case 7:
                 System.exit(0);;

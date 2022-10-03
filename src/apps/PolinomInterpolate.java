@@ -2,6 +2,7 @@ package apps;
 import java.util.Scanner;
 
 public class PolinomInterpolate {
+    
     public static void functionPolinomInterpolate() {
         Scanner input = new Scanner(System.in);
         SPLGauss obe1 = new SPLGauss();

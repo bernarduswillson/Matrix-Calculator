@@ -1,23 +1,58 @@
 package function;
 import java.io.*;
 import java.util.*;
+import utility.*;
+
 
 public class inputMatrix 
 {
-    public static void main(String[] args) throws Exception 
+    // public static void main(String[] args) throws Exception 
+    // {
+    //     readFile();
+    // }
+
+    public static int inputMenu() 
     {
-        readFile();
+        String batas = "=======================================";
+        Scanner input = new Scanner(System.in);
+        boolean status = true;
+        int choice = 0;
+
+        while(status)
+        {
+            System.out.println("1. Input dari console");
+            System.out.println("2. Input dari file");
+            System.out.println(batas);
+            System.out.println("Pilihan: ");
+            try 
+            {
+                choice = input.nextInt();
+                if (choice <= 2 && choice >= 1)
+                {
+                    status = false;
+                }
+
+                else
+                {
+                    System.out.println("Inputan salah");
+                }
+            } 
+
+            catch (NumberFormatException e) 
+            {
+                System.out.println("Inputan tidak valid");
+                continue;
+            }
+
+            catch (Exception e) 
+            {
+                System.exit(0);;
+            }
+        }
+        return choice;
     }
 
-    public static void inputMenu() 
-    {
-        System.out.println("1. Input manual");
-        System.out.println("2. Input dari file");
-        System.out.println("3. Kembali ke menu utama");
-        System.out.print("Pilihan: ");
-    }
-
-    public static void readFile() throws Exception
+    public static double[][] readFile() throws Exception
     {
         try 
         {
@@ -67,21 +102,23 @@ public class inputMatrix
                 }
             }
             fileMatrix.close();
-            //return Matrix;
-            for (int i = 0; i < row; i++) 
-            {
-                for (int j = 0; j < col; j++) 
-                {
-                    System.out.printf("%.3f\t", Matrix[i][j]);
-                }
-                System.out.println();
-            }
+            return Matrix;
+
+            // test matrix
+            // for (int i = 0; i < row; i++) 
+            // {
+            //     for (int j = 0; j < col; j++) 
+            //     {
+            //         System.out.printf("%.3f\t", Matrix[i][j]);
+            //     }
+            //     System.out.println();
+            // }
         }
 
         catch (FileNotFoundException e) 
         {
             System.out.println("File tidak ditemukan!");
-            //return new double[0][0];
+            return new double[0][0];
         }
     } 
 }
