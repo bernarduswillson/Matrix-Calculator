@@ -47,13 +47,12 @@ public class InverseReduct {
         for (int i = ROW - 1; i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 double Const = Mat[j][i] / Mat[i][i];
-                for (int k = ROW-1; k >= 0; k--) {
+                for (int k = ROW - 1; k >= 0; k--) {
                     Mat[j][k] -= Const * Mat[i][k];
                     MatAns[j][k] -= Const * MatAns[i][k];
                 } 
             }
         }
-        PrintEselon(Mat, MatAns);
     }
     
     static void PrintEselon(double[][] Mat, double[][] MatAns) {
@@ -105,6 +104,7 @@ public class InverseReduct {
         System.out.println();
         ForwardOBE(Matrix, IdentityMat);
         BackwardOBE(Matrix, IdentityMat);
+        PrintEselon(Matrix, IdentityMat);
         System.out.println();
         System.out.println("Hasil invers matriks menggunakan REDUKSI: ");
         for (int i = 0; i < ROW; i++) {

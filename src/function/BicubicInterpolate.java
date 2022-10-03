@@ -2,10 +2,11 @@ import java.io.*;
 import java.util.*;
 public class BicubicInterpolate {
     public static  double[] bicubicinterpolation(double[] matriks) {
+        InverseReduct obe = new InverseReduct();
         double [][] matrix2 = new double[16][16];
         int K = 0;
         for (int j= 0; j<4; j++) {
-            for (int i=0; i<4; i++){
+            for (int i=0; i<4; i++) {
                 matrix2[0][K]= Math.pow((-1), i) * Math.pow((-1), j); 
                 matrix2[1][K] = Math.pow((0), i) * Math.pow((-1), j); 
                 matrix2[2][K] = Math.pow((1), i) * Math.pow((-1), j); 
@@ -36,11 +37,23 @@ public class BicubicInterpolate {
             }
         }
         double[] matriksa = new double[16];
-        ForwardOBE(matrix2, IdentityMat);
-        BackwardOBE(matrix2, IdentityMat);
+        obe.ForwardOBE(matrix2, IdentityMat);
+        obe.BackwardOBE(matrix2, IdentityMat);
         matriksa = multiplyMatrix(IdentityMat, matriks);
         return matriksa;
-      }
+    }
+    
+    static double[] multiplyMatrix(double[][] Mat, double[] MatAns) {
+        int ROW = Mat.length;
+        int COL = Mat[0].length;
+        double[] mOut = new double[ROW];
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < COL; j++) {
+                mOut[i] += Mat[i][j] * MatAns[j];
+            }
+        }
+        return mOut;
+    }    
   
       static void PrintEselon(double[][] Mat, double[][] MatAns) {
         int ROW = Mat.length;
@@ -68,73 +81,6 @@ public class BicubicInterpolate {
             }
         }
         return matrixs;
-    }
-
-    static void ForwardOBE(double[][] Mat, double[][] MatAns) {
-        int ROW = Mat.length;
-        int COL = Mat[0].length;
-        for (int i = 0; i < ROW; i++) {
-            int Max = i;
-            for (int j = i + 1; j < ROW; j++) {
-                if (Math.abs(Mat[j][i]) > Math.abs(Mat[Max][i])) {
-                    Max = j;
-                    double[] Temp = Mat[i]; 
-                    Mat[i] = Mat[Max]; 
-                    Mat[Max] = Temp;
-                    double[] temp = MatAns[i]; 
-                    MatAns[i] = MatAns[Max]; 
-                    MatAns[Max] = temp;
-                    for (int k = i + 1; k < ROW; k++) {
-                        double Const = Mat[k][i] / Mat[i][i];
-                        for (int l = 0; l < COL; l++){
-                            Mat[k][l] -= Const * Mat[i][l];
-                            MatAns[k][l] -= Const * MatAns[i][l];
-                        }       
-                    }
-                }
-                else {
-                    for (int k = i + 1; k < ROW; k++) {
-                        double Const = Mat[k][i] / Mat[i][i];
-                        for (int l = 0; l < COL; l++){
-                            Mat[k][l] -= Const * Mat[i][l];
-                            MatAns[k][l] -= Const * MatAns[i][l];
-                        }       
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < ROW; i++) {
-            double Const1 = Mat[i][i];
-            for (int j = 0; j < COL; j++) {
-                Mat[i][j] = (Mat[i][j])/(Const1);
-                MatAns[i][j] = (MatAns[i][j])/(Const1);
-            }
-        }
-    }
-
-    static void BackwardOBE(double[][] Mat, double[][] MatAns) {
-        int ROW = Mat.length;
-        for (int i = ROW - 1; i >= 0; i--) {
-            for (int j = i - 1; j >= 0; j--) {
-                double Const = Mat[j][i] / Mat[i][i];
-                for (int k = ROW-1; k >= 0; k--) {
-                    Mat[j][k] -= Const * Mat[i][k];
-                    MatAns[j][k] -= Const * MatAns[i][k];
-                } 
-            }
-        }
-    }
-
-    static double[] multiplyMatrix(double[][] Mat, double[] MatAns) {
-        int ROW = Mat.length;
-        int COL = Mat[0].length;
-        double[] mOut = new double[ROW];
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
-                mOut[i] += Mat[i][j] * MatAns[j];
-            }
-        }
-        return mOut;
     }
     
     public static void main(String[] args){
