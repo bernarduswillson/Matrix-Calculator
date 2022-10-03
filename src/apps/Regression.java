@@ -2,7 +2,7 @@ import java.util.*;
 public class Regression
 {
     public static void Regresi ()
-    {   
+    {  
         Scanner input = new Scanner(System.in);
 
         // set persamaan
@@ -10,18 +10,16 @@ public class Regression
         int col = input.nextInt();
         System.out.println("Masukkan jumlah sampel: ");
         int row = input.nextInt(); 
-        double[][] matriks = new double[row][col];
-        double[] matriksans = new double[row];
+        System.out.println("Masukan nilai x1 sampai xn: ");
+        double[] x= new double[col];
+        double[][] matriks = new double[row][col+1];
+        System.out.print("Masukan Sampel : ");
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
-                System.out.print("Masukkan nilai x" + (j+1) + " pada sampel ke-" + (i+1) + ": ");
                 matriks[i][j] = input.nextDouble();
-                System.out.println();
             }
-            System.out.println("Masukkan nilai y" + (i+1) + ": ");
-            matriksans[i] = input.nextDouble();
         }
         double[][] matrikz = new double[col+1][col+2];
         // normal estimation equation 
@@ -41,11 +39,7 @@ public class Regression
                         }
                         else
                         {
-<<<<<<< HEAD:src/function/Regression.java
                             temp += matriks[k][j];
-=======
-                            matriks[i][j] = rowcol;
->>>>>>> 30ab9b76f4b402f3992218ea134666c4044915c6:src/apps/Regression.java
                         }
                     }
                     else
@@ -65,18 +59,20 @@ public class Regression
             }
 
         }
-        for (int i=0; i<row; i++){
-            double temp1 = 0;
-            for (int j=0; j<row; j++){
-                if (i==0){
-                    temp1 += matriksans[j];
-                }
-                else{
-                    temp1 += matriksans[j] * matriks[j][col];
-                }
+        SPLGaussJordan obe2 = new SPLGaussJordan();
+        obe2.ForwardOBE(seperateMatrix(matrikz, row, col));
+        
+    }
+    public static void seperateMatrix(double[][] matriks, int row, int col){
+        double[][] m1 = new double[row][col-1];
+        double[] m2 = new double[row];
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col-1; j++)
+            {
+                m1[i][j] = matriks[i][j];
             }
-            matrikz[i][col+1] = temp1;
+            m2[i] = matriks[i][col-1];
         }
-         SPLGaussJordan obe2 = new SPLGaussJordan();
     }
 }

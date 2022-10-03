@@ -11,12 +11,6 @@ public class SPLGaussJordan {
                 } 
             }
         }
-        PrintEselon(Mat, MatAns);
-        System.out.println();
-        System.out.println("Solusi SPL dengan metode GAUSS-JORDAN: ");
-        for (int i = 0; i < MatAns.length; i++) {
-            System.out.printf("X"+(i+1)+" = %.4f\n", MatAns[i]);
-        }
     }
     
     static void PrintEselon(double[][] Mat, double[] MatAns) {
@@ -52,5 +46,11 @@ public class SPLGaussJordan {
         System.out.println();
         obe1.ForwardOBE(Matrix, MatrixAns);
         BackwardOBE(Matrix, MatrixAns);
+        PrintEselon(Matrix, MatrixAns);
+        System.out.println();
+        System.out.println("Solusi SPL dengan metode GAUSS-JORDAN: ");
+        for (int i = 0; i < MatrixAns.length; i++) {
+            System.out.printf("X"+(i+1)+" = %.4f\n", MatrixAns[i]);
+        }
     }
 }
