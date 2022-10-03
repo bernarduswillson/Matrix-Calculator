@@ -13,17 +13,16 @@ public class inputMatrix
 
     public static int inputMenu() 
     {
-        String batas = "=======================================";
         Scanner input = new Scanner(System.in);
-        boolean status = true;
+        boolean status = true;  
         int choice = 0;
 
         while(status)
         {
             System.out.println("1. Input dari console");
             System.out.println("2. Input dari file");
-            System.out.println(batas);
-            System.out.println("Pilihan: ");
+            menu.batas();
+            System.out.println("Pilihan (1-2): ");
             try 
             {
                 choice = input.nextInt();
@@ -52,6 +51,50 @@ public class inputMatrix
         return choice;
     }
 
+    public static double[][] readFileBicubic() throws Exception
+    {
+        try 
+        {
+            // input file
+            System.out.println("Masukkan nama file (contoh: bernard.txt): ");
+            Scanner input = new Scanner(System.in);
+            String fileName = input.nextLine();
+
+            // kalau file kosong
+            if (Objects.isNull(fileName))
+            {
+                throw new Exception();
+            }
+            
+            // update path
+            String path = System.getProperty("user.dir") + "/" + fileName;
+            System.out.println(path);
+            File file = new File(path);
+
+            double[][] Matrix = new double[5][4];
+            Scanner fileMatrix = new Scanner(file);
+
+            for (int i = 0; i < 4; i++) 
+            {
+                for (int j = 0; j < 4; j++) 
+                {
+                    Matrix[i][j] = fileMatrix.nextDouble();
+                }
+            }
+            Matrix[4][0] = fileMatrix.nextDouble();
+            Matrix[4][1] = fileMatrix.nextDouble();
+            Matrix[4][2] = 0;
+            Matrix[4][3] = 0;
+        
+            fileMatrix.close();
+            return Matrix;
+        }
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("File tidak ditemukan!");
+            return new double[0][0];
+        }
+    }
     public static double[][] readFile() throws Exception
     {
         try 

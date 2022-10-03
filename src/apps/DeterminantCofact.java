@@ -1,5 +1,7 @@
 package apps;
 import java.util.Scanner;
+import function.inputMatrix;
+import utility.menu;
 
 public class DeterminantCofact {
     static double DeterminantC(double[][] Mat) {
@@ -28,26 +30,52 @@ public class DeterminantCofact {
         }
     }
 
-    public static void functionDetCofact() {
+    public static void functionDetCofact() throws Exception {
         Scanner input = new Scanner(System.in);
+        menu.batas();
         System.out.println("PROGRAM DETERMINAN KOFAKTOR\n");
-        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
-        int ROW = input.nextInt();
-        int COL = input.nextInt();
-        System.out.println();
-        double[][] Matrix = new double[ROW][COL];
-        if (ROW != COL) {
-            System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
-        }
-        else {
-            System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-            for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) {
-                    Matrix[i][j] = input.nextDouble();
-                }
-            }
+        menu.batas();
+        int choice = inputMatrix.inputMenu();
+        if (choice == 1)
+        {
+            System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+            int ROW = input.nextInt();
+            int COL = input.nextInt();
             System.out.println();
-            System.out.printf("Hasil determinan menggunakan KOFAKTOR: %.3f\n", DeterminantC(Matrix));
+            double[][] Matrix = new double[ROW][COL];
+            if (ROW != COL) {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
+            }
+            else {
+                System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+                for (int i = 0; i < ROW; i++) {
+                    for (int j = 0; j < COL; j++) {
+                        Matrix[i][j] = input.nextDouble();
+                    }
+                }
+                System.out.println();
+                System.out.printf("Hasil determinan menggunakan KOFAKTOR: %.3f\n", DeterminantC(Matrix));
+            }
         }
+        else if (choice == 2)
+        {
+            double[][] Matrix = inputMatrix.readFile();
+            int ROW = Matrix.length;
+            int COL = Matrix[0].length;
+            if (ROW != COL) 
+            {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
+            }
+            else
+            {
+                System.out.println();
+                System.out.printf("Hasil determinan menggunakan KOFAKTOR: %.3f\n", DeterminantC(Matrix));
+            }
+        }
+        else
+        {
+            System.out.println("Input tidak valid!\n");
+        }
+        menu.backToMenu();
     }
 }

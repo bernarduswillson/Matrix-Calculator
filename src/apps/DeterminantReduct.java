@@ -1,5 +1,7 @@
 package apps;
 import java.util.Scanner;
+import function.inputMatrix;
+import utility.menu;
 
 public class DeterminantReduct {
     static void DeterminantR(double[][] Mat) {
@@ -53,26 +55,52 @@ public class DeterminantReduct {
         System.out.println();
     }
 
-    public static void functionDetReduct() {
+    public static void functionDetReduct() throws Exception {
         Scanner input = new Scanner(System.in);
+        menu.batas();
         System.out.println("PROGRAM DETERMINAN REDUKSI\n");
-        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
-        int ROW = input.nextInt();
-        int COL = input.nextInt();
-        System.out.println();
-        double[][] Matrix = new double[ROW][COL];
-        if (ROW != COL) {
-            System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
-        }
-        else {
-            System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-            for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) {
-                    Matrix[i][j] = input.nextDouble();
+        menu.batas();
+        int choice = inputMatrix.inputMenu();
+        if (choice == 1)
+        {
+            System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+            int ROW = input.nextInt();
+            int COL = input.nextInt();
+            System.out.println();
+            double[][] Matrix = new double[ROW][COL];
+            if (ROW != COL) {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
+            }
+            else {
+                System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+                for (int i = 0; i < ROW; i++) {
+                    for (int j = 0; j < COL; j++) {
+                        Matrix[i][j] = input.nextDouble();
+                    }
                 }
             }
+            System.out.println();
+            DeterminantR(Matrix);
         }
-        System.out.println();
-        DeterminantR(Matrix);
+        else if (choice == 2)
+        {
+            double[][] Matrix = inputMatrix.readFile();
+            int ROW = Matrix.length;
+            int COL = Matrix[0].length;
+            if (ROW != COL) 
+            {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
+            }
+            else
+            {
+                System.out.println();
+                DeterminantR(Matrix);
+            }
+        }
+        else
+        {
+            System.out.println("Input tidak valid!");
+        }
+        menu.backToMenu();
     }
 }

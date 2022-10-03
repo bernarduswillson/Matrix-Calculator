@@ -1,5 +1,7 @@
 package apps;
 import java.util.Scanner;
+import function.inputMatrix;
+import utility.menu;
 
 public class InverseReduct {
     static void ForwardOBE(double[][] Mat, double[][] MatAns) {
@@ -73,47 +75,98 @@ public class InverseReduct {
         }
     }
 
-    public static void functionInverseReduct() {
+    public static void functionInverseReduct() throws Exception {
         Scanner input = new Scanner(System.in);
+        menu.batas();
         System.out.println("PROGRAM INVERS REDUKSI\n");
-        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
-        int ROW = input.nextInt();
-        int COL = input.nextInt();
-        System.out.println();
-        double[][] Matrix = new double[ROW][COL];
-        double[][] IdentityMat = new double[ROW][COL];
-        if (ROW != COL) {
-            System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
-        }
-        else {
-            System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-            for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) {
-                    Matrix[i][j] = input.nextDouble();
-                }
+        menu.batas();
+        int choice = inputMatrix.inputMenu();
+        if (choice == 1)
+        {
+            System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+            int ROW = input.nextInt();
+            int COL = input.nextInt();
+            System.out.println();
+            double[][] Matrix = new double[ROW][COL];
+            double[][] IdentityMat = new double[ROW][COL];
+            if (ROW != COL) {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
             }
-            for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) {
-                    if (i == j) {
-                        IdentityMat[i][j] = 1;
-                    }
-                    else {
-                        IdentityMat[i][j] = 0;
+            else {
+                System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+                for (int i = 0; i < ROW; i++) {
+                    for (int j = 0; j < COL; j++) {
+                        Matrix[i][j] = input.nextDouble();
                     }
                 }
-            }
-        }
-        System.out.println();
-        ForwardOBE(Matrix, IdentityMat);
-        BackwardOBE(Matrix, IdentityMat);
-        PrintEselon(Matrix, IdentityMat);
-        System.out.println();
-        System.out.println("Hasil invers matriks menggunakan REDUKSI: ");
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
-                System.out.printf("%.3f\t", IdentityMat[i][j]);
+                for (int i = 0; i < ROW; i++) {
+                    for (int j = 0; j < COL; j++) {
+                        if (i == j) {
+                            IdentityMat[i][j] = 1;
+                        }
+                        else {
+                            IdentityMat[i][j] = 0;
+                        }
+                    }
+                }
             }
             System.out.println();
+            ForwardOBE(Matrix, IdentityMat);
+            BackwardOBE(Matrix, IdentityMat);
+            PrintEselon(Matrix, IdentityMat);
+            System.out.println();
+            System.out.println("Hasil invers matriks menggunakan REDUKSI: ");
+            for (int i = 0; i < ROW; i++) {
+                for (int j = 0; j < COL; j++) {
+                    System.out.printf("%.3f\t", IdentityMat[i][j]);
+                }
+                System.out.println();
+            }
         }
+        else if (choice == 2)
+        {
+            double[][] Matrix = inputMatrix.readFile();
+            int ROW = Matrix.length;
+            int COL = Matrix[0].length;
+            double[][] IdentityMat = new double[ROW][COL];
+            if (ROW != COL) 
+            {
+                System.out.println("Matriks tidak mempunyai determinan karena bukan matriks persegi!\n");
+            }
+            else
+            {
+                for (int i = 0; i < ROW; i++) 
+                {
+                    for (int j = 0; j < COL; j++) 
+                    {
+                        
+                        if (i == j) 
+                        {
+                            IdentityMat[i][j] = 1;
+                        }
+                        else {
+                            IdentityMat[i][j] = 0;
+                        }
+                    }
+                }
+                System.out.println();
+                ForwardOBE(Matrix, IdentityMat);
+                BackwardOBE(Matrix, IdentityMat);
+                PrintEselon(Matrix, IdentityMat);
+                System.out.println();
+                System.out.println("Hasil invers matriks menggunakan REDUKSI: ");
+                for (int i = 0; i < ROW; i++) {
+                    for (int j = 0; j < COL; j++) {
+                        System.out.printf("%.3f\t", IdentityMat[i][j]);
+                    }
+                    System.out.println();
+                }
+            }
+        }
+        else
+        {
+            System.out.println("Input tidak valid!");
+        }
+        menu.backToMenu();
     }
 }

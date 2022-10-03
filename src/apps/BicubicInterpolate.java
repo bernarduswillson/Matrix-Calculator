@@ -1,6 +1,9 @@
 package apps;
 import java.util.*;
 
+import function.inputMatrix;
+import utility.*;
+
 public class BicubicInterpolate {
     public static  double[] bicubicinterpolation(double[] matriks) {
         InverseReduct obe = new InverseReduct();
@@ -84,34 +87,76 @@ public class BicubicInterpolate {
         return matrixs;
     }
     
-    public static void functionBicubicInterpolate(){
+    public static void functionBicubicInterpolate() throws Exception{
         Scanner input = new Scanner(System.in);
+        menu.batas();
         System.out.println("PROGRAM INTERPOLASI BIKUBIK\n");
-        System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-        double[][] matrix = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                matrix[i][j] = input.nextDouble();
+        menu.batas(); 
+        int choice = inputMatrix.inputMenu();
+        if (choice == 1)
+        {
+            System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+            double[][] matrix = new double[4][4];
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    matrix[i][j] = input.nextDouble();
+                }
             }
-        }
-        System.out.println();
-        double[] matrixs = new double[16];
-        matrixs = reshape(matrix,16);
-        double[] matriksa = new double[16];
-        matriksa =bicubicinterpolation(matrixs);
-        double count = 0;
-        System.out.print("Masukan Nilai X: ");
-        double x = input.nextDouble();
-        System.out.print("Masukan Nilai Y: ");
-        double y = input.nextDouble();
-        int k = 0;
-        for (int i=0;i<4;i++){
-            for (int j=0;j<4;j++){
-                count = count + matriksa[k]*Math.pow(x,i)*Math.pow(y,j);
-                k++;
+            System.out.println();
+            double[] matrixs = new double[16];
+            matrixs = reshape(matrix,16);
+            double[] matriksa = new double[16];
+            matriksa =bicubicinterpolation(matrixs);
+            double count = 0;
+            System.out.print("Masukan Nilai X: ");
+            double x = input.nextDouble();
+            System.out.print("Masukan Nilai Y: ");
+            double y = input.nextDouble();
+            int k = 0;
+            for (int i=0;i<4;i++){
+                for (int j=0;j<4;j++){
+                    count = count + matriksa[k]*Math.pow(x,i)*Math.pow(y,j);
+                    k++;
+                }
             }
+            System.out.println();
+            System.out.printf("f("+x+","+y+") = %.3f",count);
         }
-        System.out.println();
-        System.out.printf("f("+x+","+y+") = %.3f",count);
+        else if (choice == 2)
+        {
+            double[][] Matrix = inputMatrix.readFileBicubic(); 
+            double[][] m1 = new double[4][4];
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    m1[i][j] = Matrix[i][j];
+                }
+            }
+            double x = Matrix[4][0];
+            double y = Matrix[4][1];
+
+            System.out.println();
+            double[] matrixs = new double[16];
+            matrixs = reshape(m1,16);
+            double[] matriksa = new double[16];
+            matriksa = bicubicinterpolation(matrixs);
+            
+            double count = 0;
+            int k = 0;
+            for (int i=0;i<4;i++){
+                for (int j=0;j<4;j++){
+                    count = count + matriksa[k]*Math.pow(x,i)*Math.pow(y,j);
+                    k++;
+                }
+            }
+            System.out.println();
+            System.out.printf("f("+x+","+y+") = %.3f",count);
+        }
+        else
+        {
+            System.out.println("Inputan salah");
+        }
+        menu.backToMenu();
     }
 }

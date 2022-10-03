@@ -1,6 +1,9 @@
 package apps;
 import java.util.Scanner;
 
+import function.inputMatrix;
+import function.*;
+import utility.*;
 public class SPLGauss {
     static void ForwardOBE(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
@@ -76,24 +79,47 @@ public class SPLGauss {
         System.out.println();     
     }
 
-    public static void functionSPLGauss() {
+    public static void functionSPLGauss() throws Exception {
         Scanner input = new Scanner(System.in);
+        menu.batas();
         System.out.println("PROGRAM ELIMINASI GAUSS\n");
-        System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
-        int ROW = input.nextInt();
-        int COL = input.nextInt();
-        System.out.println();
-        double[][] Matrix = new double[ROW][COL];
-        double[] MatrixAns = new double[ROW];
-        System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-        for (int i = 0; i < ROW; i++)
-            for (int j = 0; j < COL; j++)
-                Matrix[i][j] = input.nextDouble();
-        System.out.println();
-        System.out.println("Masukkan elemen matriks jawaban (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
-        for (int i = 0; i < ROW; i++)
-            MatrixAns[i] = input.nextDouble();
-        System.out.println();
-        ForwardOBE(Matrix, MatrixAns);
+        menu.batas();
+        int choice = inputMatrix.inputMenu();
+        if (choice == 1)
+        {
+            System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");
+            int ROW = input.nextInt();
+            int COL = input.nextInt();
+            System.out.println();
+            double[][] Matrix = new double[ROW][COL];
+            double[] MatrixAns = new double[ROW];
+            System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+            for (int i = 0; i < ROW; i++)
+                for (int j = 0; j < COL; j++)
+                    Matrix[i][j] = input.nextDouble();
+            System.out.println();
+            System.out.println("Masukkan elemen matriks jawaban (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");
+            for (int i = 0; i < ROW; i++)
+                MatrixAns[i] = input.nextDouble();
+            System.out.println();
+            ForwardOBE(Matrix, MatrixAns);
+        }
+        else if (choice == 2)
+        {
+            double[][] Matrix = inputMatrix.readFile();
+            int ROW = Matrix.length;
+            int COL = Matrix[0].length;
+            if (ROW != (COL - 1)) 
+            {
+                System.out.println("Tidak dapat diperoleh penyelesaian karena bukan matriks persegi!\n");
+            }
+            else
+            {
+                double[][] MatrixEq = Regression.seperateMatrix(Matrix, ROW, COL);
+                double[] MatrixAns = Regression.seperateMatrix1(Matrix, ROW, COL);
+                ForwardOBE(MatrixEq, MatrixAns);
+            }
+        }
+        menu.backToMenu();
     }
 }

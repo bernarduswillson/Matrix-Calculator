@@ -108,7 +108,7 @@ public class Regression
     public static void Regresi ()
     {  
         Scanner input = new Scanner(System.in);
-
+        
         // set persamaan
         System.out.println("Masukkan jumlah variabel x: ");
         int col = input.nextInt();

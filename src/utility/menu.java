@@ -5,30 +5,22 @@ import apps.*;
 import function.*;
 public class menu
 {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws Exception 
     {
-        //int choice = 0;
-        mainMenu();
-        while(true)
-        {
-            Scanner input = new Scanner(System.in);
-            System.out.print("Masukkan pilihan anda : ");
-            int choice = input.nextInt();
-            mainMenu();
-        }
+        backToMenu();
+        // mainMenu();
     }
     
-    public static void mainMenu ()
+    public static void mainMenu () throws Exception
     {
-        String batas = "=======================================";
         Scanner input = new Scanner(System.in);
-
+        batas();
         System.out.println("KALKULATOR MATRIKS");
         Boolean status = true;
         int choice = 0;
         while (status)
         {
-            System.out.println(batas);
+            batas();
             System.out.println("MENU");
             System.out.println("1. Sistem Persamaan Linier");
             System.out.println("2. Determinan");
@@ -37,7 +29,7 @@ public class menu
             System.out.println("5. Interpolasi Bicubic");
             System.out.println("6. Regresi linier berganda");
             System.out.println("7. Keluar");
-            System.out.println(batas);
+            batas();
             System.out.println("Pilih kalkulator yang akan digunakan (1-7) : ");
             try {
                 choice = input.nextInt();
@@ -91,7 +83,7 @@ public class menu
         }
     }
 
-    public static void splMenu ()
+    public static void splMenu () throws Exception
     {
         String batas = "=======================================";
         Scanner input = new Scanner(System.in);
@@ -101,14 +93,14 @@ public class menu
         int choice = 0;
         while (status)
         {
-            System.out.println(batas);
+            batas();
             System.out.println("METODE");
             System.out.println("1. Metode eliminasi Gauss");
             System.out.println("2. Metode eliminasi Gauss-Jordan");
             System.out.println("3. Metode matriks balikan");
             System.out.println("4. Kaidah Cramer");
             System.out.println("5. Kembali ke menu utama");
-            System.out.println(batas);
+            batas();
             System.out.println("Pilih metode yang akan digunakan (1-7) : ");
             try {
                 choice = input.nextInt();
@@ -154,7 +146,7 @@ public class menu
     }
 
     
-    public static void detMenu ()
+    public static void detMenu () throws Exception
     {
         String batas = "=======================================";
         Scanner input = new Scanner(System.in);
@@ -164,12 +156,12 @@ public class menu
         int choice = 0;
         while (status)
         {
-            System.out.println(batas);
+            batas();
             System.out.println("METODE");
             System.out.println("1. Metode ekspansi kofaktor");
             System.out.println("2. Metode matriks reduksi");
             System.out.println("3. Kembali ke menu utama");
-            System.out.println(batas);
+            batas();
             System.out.println("Pilih metode yang akan digunakan (1-3) : ");
             try {
                 choice = input.nextInt();
@@ -208,7 +200,7 @@ public class menu
                 break;
         }
     }
-    public static void invMenu ()
+    public static void invMenu () throws Exception
     {
         String batas = "=======================================";
         Scanner input = new Scanner(System.in);
@@ -218,12 +210,12 @@ public class menu
         int choice = 0;
         while (status)
         {
-            System.out.println(batas);
+            batas();
             System.out.println("METODE");
             System.out.println("1. Metode adjoin");
             System.out.println("2. Metode matriks reduksi");
             System.out.println("3. Kembali ke menu utama");
-            System.out.println(batas);
+            batas();
             System.out.println("Pilih metode yang akan digunakan (1-3) : ");
             try {
                 choice = input.nextInt();
@@ -263,16 +255,16 @@ public class menu
         }
     }
 
-    public static void backToMenu ()
+    public static void backToMenu () throws Exception
     {
         System.out.println("Apakah anda ingin menggunakan kalkulator lagi? (y/n)");
         Scanner input = new Scanner(System.in);
         String choice = input.nextLine();
-        if (choice == "y")
+        if (choice.equals("y"))
         {
             mainMenu();
         }
-        else if (choice == "n")
+        else if (choice.equals("n"))
         {
             System.exit(0);
         }
@@ -282,4 +274,11 @@ public class menu
             backToMenu();
         }
     }
+
+    public static void batas()   
+    {
+        String batas = "=======================================";
+        System.out.println(batas);
+    }
+    
 }
