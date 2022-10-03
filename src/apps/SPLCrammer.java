@@ -1,4 +1,4 @@
-package function;
+package apps;
 import java.util.Scanner;
 
 public class SPLCrammer{

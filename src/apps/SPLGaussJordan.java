@@ -1,4 +1,6 @@
+package apps;
 import java.util.Scanner;
+
 public class SPLGaussJordan {
     static void BackwardOBE(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
