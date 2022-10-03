@@ -65,6 +65,17 @@ public class Regression
             }
         }
     }
+    static void PrintEselon(double[][] Mat, double[] MatAns) {
+        int ROW = Mat.length;
+        int COL = Mat[0].length;
+        System.out.println("Hasil matriks setelah menggunakan GAUSS: ");
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < COL; j++) {
+                System.out.printf("%.3f\t", Mat[i][j]);
+            }
+            System.out.printf("  |\t%.3f\n", MatAns[i]);
+        }
+    }
 // USABLE
 
     public static double[][] seperateMatrix(double[][] matriks, int row, int col){
@@ -118,7 +129,7 @@ public class Regression
                 matriks[i][j] = input.nextDouble();
             }
         }
-        double[][] matrikz = new double[col+1][col+2];
+        double[][] matrikz = new double[col+2][col+3];
         // normal estimation equation 
         
         for (int i = 0; i < row; i++)
@@ -160,16 +171,17 @@ public class Regression
         // SPLGaussJordan obe2 = new SPLGaussJordan();
         double[][] m1;
         double[] m2;
-        m1 = seperateMatrix(matrikz, col+1, col+2);
-        m2 = seperateMatrix1(matrikz, col+1, col+2);
+        m1 = seperateMatrix(matrikz, col+2, col+3);
+        m2 = seperateMatrix1(matrikz, col+2, col+3);
         ForwardOBE(m1, m2);
         BackwardOBE(m1, m2);
-        double sum = row;
-        for (int i=0; i<row; i++){
-            sum += x[i]*m2[i];
+        PrintEselon(m1, m2);
+        double sum = m2[0];
+        for (int i=0; i<col; i++){
+            sum += x[i]*m2[i+1];
         }
         System.out.println("Hasil Regresi : ");
-        System.out.println("y = "+sum);
+        //System.out.println("y = "+sum);
     }
 
     public static void main(String[] args)
