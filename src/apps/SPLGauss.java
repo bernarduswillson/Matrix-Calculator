@@ -45,16 +45,16 @@ public class SPLGauss {
             }
             MatAns[i] = (MatAns[i])/(Const1);
         }
-        PrintEselon(Mat, MatAns);
+        
         System.out.println();
-        double[] Solution = new double[ROW];
-        for (int i = ROW - 1; i >= 0; i--) {
-            double Sum = 0;
-            for (int j = i + 1; j < ROW; j++) 
-                Sum += Mat[i][j] * Solution[j];
-            Solution[i] = (MatAns[i] - Sum) / Mat[i][i];
-        }        
-        PrintSolution(Solution);
+        // double[] Solution = new double[ROW];
+        // for (int i = ROW - 1; i >= 0; i--) {
+        //     double Sum = 0;
+        //     for (int j = i + 1; j < ROW; j++) 
+        //         Sum += Mat[i][j] * Solution[j];
+        //     Solution[i] = (MatAns[i] - Sum) / Mat[i][i];
+        // }
+        // PrintSolution(Solution);
     }
 
     static void PrintEselon(double[][] Mat, double[] MatAns) {
@@ -103,6 +103,15 @@ public class SPLGauss {
                 MatrixAns[i] = input.nextDouble();
             System.out.println();
             ForwardOBE(Matrix, MatrixAns);
+            PrintEselon(Matrix, MatrixAns);
+            double[] Solution = new double[ROW];
+            for (int i = ROW - 1; i >= 0; i--) {
+                double Sum = 0;
+                for (int j = i + 1; j < ROW; j++) 
+                    Sum += Matrix[i][j] * Solution[j];
+                Solution[i] = (MatrixAns[i] - Sum) / Matrix[i][i];
+            }
+            PrintSolution(Solution);
         }
         else if (choice == 2)
         {
@@ -118,7 +127,17 @@ public class SPLGauss {
                 double[][] MatrixEq = Regression.seperateMatrix(Matrix, ROW, COL);
                 double[] MatrixAns = Regression.seperateMatrix1(Matrix, ROW, COL);
                 ForwardOBE(MatrixEq, MatrixAns);
+                PrintEselon(MatrixEq, MatrixAns);
+                double[] Solution = new double[ROW];
+                for (int i = ROW - 1; i >= 0; i--) {
+                    double Sum = 0;
+                    for (int j = i + 1; j < ROW; j++) 
+                        Sum += MatrixEq[i][j] * Solution[j];
+                    Solution[i] = (MatrixAns[i] - Sum) / MatrixEq[i][i];
+                }
+                PrintSolution(Solution);
             }
+            
         }
         menu.backToMenu();
     }
