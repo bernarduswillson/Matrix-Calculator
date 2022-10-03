@@ -23,39 +23,56 @@ public class Regression
             System.out.println("Masukkan nilai y" + (i+1) + ": ");
             matriksans[i] = input.nextDouble();
         }
-
+        double[][] matrikz = new double[col+1][col+2];
         // normal estimation equation 
+        
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
+                double temp = 0;
                 for (int k = 0; k < row; k++)
                 {
                     if (i == 0)
                     {
                         if (j == 0)
                         {
-                            matriks[i][j] = row;
+                            temp += row;
                         }
                         else
                         {
-                            matriks[i][j] = ;
+                            temp += matriks[k][j];
                         }
                     }
                     else
                     {
                         if (j == 0)
                         {
-                            matriks[i][j] = colsum(matriks, (i-1));
+                            temp += matriks[k][i];
                         }
                         else
                         {
-                            matriks[i][j] = twocolsum(matriks, (i-1), (j-1));
+                            temp += matriks[k][i] * matriks[k][j];
                         }
                     }
                 }
+                matrikz[i][j] = temp;
+
             }
 
         }
+        for (int i=0; i<row; i++){
+            double temp1 = 0;
+            for (int j=0; j<row; j++){
+                if (i==0){
+                    temp1 += matriksans[j];
+                }
+                else{
+                    temp1 += matriksans[j] * matriks[j][col];
+                }
+            }
+            matrikz[i][col+1] = temp1;
+        }
+         SPLGaussJordan obe2 = new SPLGaussJordan();
     }
 }
