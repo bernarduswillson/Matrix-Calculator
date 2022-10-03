@@ -7,8 +7,7 @@ public class menu
 {
     public static void main(String[] args) throws Exception 
     {
-        backToMenu();
-        // mainMenu();
+        mainMenu();
     }
     
     public static void mainMenu () throws Exception

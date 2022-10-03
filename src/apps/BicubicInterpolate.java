@@ -120,7 +120,7 @@ public class BicubicInterpolate {
                 }
             }
             System.out.println();
-            System.out.printf("f("+x+","+y+") = %.3f",count);
+            System.out.printf("f("+x+","+y+") = %.3f\n",count);
         }
         else if (choice == 2)
         {
@@ -141,7 +141,7 @@ public class BicubicInterpolate {
             matrixs = reshape(m1,16);
             double[] matriksa = new double[16];
             matriksa = bicubicinterpolation(matrixs);
-            
+
             double count = 0;
             int k = 0;
             for (int i=0;i<4;i++){
@@ -151,7 +151,7 @@ public class BicubicInterpolate {
                 }
             }
             System.out.println();
-            System.out.printf("f("+x+","+y+") = %.3f",count);
+            System.out.printf("f("+x+","+y+") = %.3f\n",count);
         }
         else
         {
