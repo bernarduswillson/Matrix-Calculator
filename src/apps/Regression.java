@@ -59,11 +59,22 @@ public class Regression
             }
 
         }
+        SPLGauss obe = new SPLGauss();
         SPLGaussJordan obe2 = new SPLGaussJordan();
-        obe2.ForwardOBE(seperateMatrix(matrikz, row, col));
-        
+        double[][] m1;
+        double[] m2;
+        m1 = seperateMatrix(matrikz, col+1, col+2);
+        m2 = seperateMatrix1(matrikz, col+1, col+2);
+        obe.ForwardOBE(m1, m2);
+        obe2.BackwardOBE(m1, m2);
+        double sum = row;
+        for (int i=0; i<row; i++){
+            sum += x[i]*m2[i];
+        }
+        System.out.println("Hasil Regresi : ");
+        System.out.println("y = "+sum);
     }
-    public static void seperateMatrix(double[][] matriks, int row, int col){
+    public static double[][] seperateMatrix(double[][] matriks, int row, int col){
         double[][] m1 = new double[row][col-1];
         double[] m2 = new double[row];
         for (int i = 0; i < row; i++)
@@ -74,5 +85,24 @@ public class Regression
             }
             m2[i] = matriks[i][col-1];
         }
+        return m1;
+    }
+    public static double[] seperateMatrix1(double[][] matriks, int row, int col){
+        double[][] m1 = new double[row][col-1];
+        double[] m2 = new double[row];
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < col-1; j++)
+            {
+                m1[i][j] = matriks[i][j];
+            }
+            m2[i] = matriks[i][col-1];
+        }
+        return m2;
+    }
+    public static void main(String[] args)
+    {
+
+        Regresi();
     }
 }
