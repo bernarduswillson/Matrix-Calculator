@@ -1,4 +1,6 @@
+package function;
 import java.util.Scanner;
+
 public class InverseAdj{
     static double[][] Cofactor(double[][] Mat) {
         DeterminantCofact Det = new DeterminantCofact();
@@ -93,7 +95,7 @@ public class InverseAdj{
         }
     }
 
-    public static void main(String[] args) {
+    public static void functionInverseAdj() {
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM INVERS ADJOIN\n");
         System.out.print("Masukkan ukuran matriks baris X kolom (gunakan spasi sebagai pemisah): ");

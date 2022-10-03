@@ -1,3 +1,4 @@
+package function;
 import java.io.*;
 import java.util.*;
 public class BicubicInterpolate {
@@ -83,7 +84,7 @@ public class BicubicInterpolate {
         return matrixs;
     }
     
-    public static void main(String[] args){
+    public static void functionBicubicInterpolate(){
         Scanner input = new Scanner(System.in);
         System.out.println("PROGRAM INTERPOLASI BIKUBIK\n");
         System.out.println("Masukkan elemen matriks (gunakan spasi sebagai pemisah dan enter untuk pindah baris): ");

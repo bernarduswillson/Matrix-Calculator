@@ -31,7 +31,7 @@ public class SPLGaussJordan {
         }
     }
 
-    public static void main(String[] args) {
+    public static void functionSPLGaussJordan() {
         Scanner input = new Scanner(System.in);
         SPLGauss obe1 = new SPLGauss();
         System.out.println("PROGRAM ELIMINASI GAUSS\n");
