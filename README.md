@@ -3,7 +3,9 @@ README
 # Algeo01-21005
 - --
 ## General Information 
-Tubes 1 of Aljabar Linier dan Geometri (IF2123). A library linear algebra using Java. This library contains source files to solve determinant, inverse, linear system equation such as interpolation and linear regression using various methods (Gauss, Gauss-Jordan, Inverse, and Cramer). 
+This repository contains a library linear algebra using Java needed as a fullfilment for our 1st Big Project of IF2123 Linear and Geometric Algebra. This library contains source files to solve determinant, inverse, linear system equation such as interpolation and linear regression using various methods (Gauss, Gauss-Jordan, Inverse, and Cramer). 
+## Technology Used
+- Java Language
 ## Contributors (Jamet Nangor Ganteng)
 - 13521005 Kelvin Rayhan Alkarim <br/>
 - 13521021 Bernardus Willson <br/>
@@ -15,86 +17,53 @@ Tubes 1 of Aljabar Linier dan Geometri (IF2123). A library linear algebra using 
   - Inverse Method
   - Cramer's Rule
 - Matrix determinant calculator using:
-  - Cofactor
-  - Elementary Row Operation
+  - Cofactor Expansion
+  - Row Reduction
 - Matrix inverse calculator using:
   - Adjoin
-  - Elementary Row Operation
+  - Row Reduction
 - Polynomial Interpolation
 - Bicubic Interpolation
 - Multiple Linear Regression
 ## Project Structure
-bash
+```bash
 .
-├── .idea ---------------------------------------- IntelliJ's project specific settings files
 ├── bin ------------------------------------------ Folder containing binary files (*.class)
 ├── doc ------------------------------------------ Folder containing project report
-│   └── Algeo01-21001.pdf
+│   └── Algeo01-21005.pdf
 ├── src ------------------------------------------ Folder containing source files (*.java)
-│   └── algeo01 ---------------------------------- Project package
-│       ├── application -------------------------- Application package
-│       │   ├── BicubicInterpolation ------------- Bicubic Interpolation App package
-│       │   │   └── Main.java
-│       │   ├── Determinant ---------------------- Determinant App package
-│       │   │   ├── determinantCofactor
-│       │   │   │   └── Main.java
-│       │   │   ├── determinantOBE
-│       │   │   │   └── Main.java
-│       │   │   └── Main.java
-│       │   ├── InterpolasiPolinom --------------- Polynomial Interpolation App package
-│       │   │   └── Main.java
-│       │   ├── inverse -------------------------- Inverse App package
-│       │   │   ├── inverseAdj
-│       │   │   │   └── Main.java
-│       │   │   ├── inverseOBE
-│       │   │   │   └── Main.java
-│       │   │   └── Main.java
-│       │   ├── linearRegression ----------------- Linear Regression App package
-│       │   │   └── Main.java
-│       │   ├── SPL ------------------------------ Linear System Equation App package
-│       │   │   ├── Cramer
-│       │   │   │   └── Main.java
-│       │   │   ├── Gauss
-│       │   │   │   └── Main.java
-│       │   │   ├── GaussJordan
-│       │   │   │   └── Main.java
-│       │   │   ├── MatriksBalikan
-│       │   │   │   └── Main.java
-│       │   │   └── Main.java
-│       │   └── Main.java
-│       ├── data --------------------------------- Class package
-│       │   └── Matrix.java
-│       └── function ----------------------------- Function package
-│           ├── AddRowByRow.java
-│           ├── BicubicInterpolator.java
-│           ├── CubicInterpolator.java
-│           ├── Determinant.java
-│           ├── DeterminantOBE.java
-│           ├── GaussElimination.java
-│           ├── GaussJordanElimination.java
-│           ├── Inverse.java
-│           ├── InverseOBE.java
-│           ├── MultiplyRowByConst.java
-│           ├── NormalEstimation.java
-│           ├── RowEchelonResult.java
-│           ├── SubtractRowByRow.java
-│           └── SwapRows.java 
-├── test ------------------------------------------ Folder containing test files
-│   └── spl1.txt 
+│   └––─–─– apps -------------------------- Application package
+│       │   ├── BicubicInterpolate.java
+│       │   ├── DeterminantCofact.java
+│       │   ├── DeterminantReduct.java
+│       │   ├── InverseReduct.java   
+│       │   ├── PolinomInterpolate.java   
+│       │   ├── Regression.java   
+│       │   ├── SPLCrammer.java   
+│       │   ├── SPLGauss.java   
+│       │   ├── SPLGaussJordan.java
+│       │   └── SPLInverse.java   
+│       │
+│       ├── function --------------------------------- Input Matrix package
+│       │   └── inputMatrix.java
+│       │
+│       └── utility ----------------------------- Main package
+│           └── menu.java
+│
+├── test ------------------------------------------ Folder containing testing case files
+│   
 └── README.md
+```
 ## Local Setup
 1. Clone this repository
-2. Go to src folder: 
-/src/
+2. Go to src folder:<br>
+<code>/src/</code>
 
-2. Compile by running: 
-javac -d ..\bin algeo01/*.java
+3. Compile by running: <br>
+<code>javac -d ../bin function/*.java utility/*.java apps/*.java</code>
 
-3. Go to bin folder: 
-/bin/production/Algeo01-21001/
+4. Go to bin folder: <br>
+<code>/bin/</code>
 
-4. Run Main by running: 
-java algeo01.application.Main
-
-## Technology Used
-- Java
+5. Run menu program by using command: <br>
+<code>java utility.menu</code>
