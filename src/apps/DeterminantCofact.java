@@ -1,5 +1,6 @@
-package function;
+package apps;
 import java.util.Scanner;
+
 public class DeterminantCofact {
     static double DeterminantC(double[][] Mat) {
         int ROW = Mat.length;

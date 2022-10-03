@@ -1,4 +1,6 @@
+package apps;
 import java.util.Scanner;
+
 public class DeterminantReduct {
     static void DeterminantR(double[][] Mat) {
         int ROW = Mat.length;
