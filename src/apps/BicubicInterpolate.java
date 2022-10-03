@@ -1,6 +1,6 @@
-package function;
-import java.io.*;
+package apps;
 import java.util.*;
+
 public class BicubicInterpolate {
     public static  double[] bicubicinterpolation(double[] matriks) {
         InverseReduct obe = new InverseReduct();

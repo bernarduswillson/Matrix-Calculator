@@ -1,4 +1,6 @@
+package apps;
 import java.util.Scanner;
+
 public class SPLGaussJordan {
     static void BackwardOBE(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
@@ -10,12 +12,6 @@ public class SPLGaussJordan {
                     Mat[j][k] -= Const * Mat[i][k];
                 } 
             }
-        }
-        PrintEselon(Mat, MatAns);
-        System.out.println();
-        System.out.println("Solusi SPL dengan metode GAUSS-JORDAN: ");
-        for (int i = 0; i < MatAns.length; i++) {
-            System.out.printf("X"+(i+1)+" = %.4f\n", MatAns[i]);
         }
     }
     
@@ -52,5 +48,11 @@ public class SPLGaussJordan {
         System.out.println();
         obe1.ForwardOBE(Matrix, MatrixAns);
         BackwardOBE(Matrix, MatrixAns);
+        PrintEselon(Matrix, MatrixAns);
+        System.out.println();
+        System.out.println("Solusi SPL dengan metode GAUSS-JORDAN: ");
+        for (int i = 0; i < MatrixAns.length; i++) {
+            System.out.printf("X"+(i+1)+" = %.4f\n", MatrixAns[i]);
+        }
     }
 }

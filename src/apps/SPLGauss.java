@@ -1,4 +1,6 @@
+package apps;
 import java.util.Scanner;
+
 public class SPLGauss {
     static void ForwardOBE(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;

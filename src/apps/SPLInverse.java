@@ -1,4 +1,6 @@
+package apps;
 import java.util.*;
+
 public class SPLInverse {
     static double[] multiplyMatrix(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;
