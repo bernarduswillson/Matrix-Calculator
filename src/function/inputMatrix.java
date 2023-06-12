@@ -51,8 +51,9 @@ public class inputMatrix {
             }
 
             // update path
-            String path = System.getProperty("user.dir") + "/" + fileName;
-            System.out.println(path);
+            String currentDirectory = System.getProperty("user.dir");
+            String parentDirectory = new File(currentDirectory).getParent();
+            String path = parentDirectory + '\\' + "test" + '\\' + fileName;
             File file = new File(path);
 
             double[][] Matrix = new double[5][4];
@@ -73,6 +74,8 @@ public class inputMatrix {
             return Matrix;
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
+            System.out.println();
+            menu.backToMenu();
             return new double[0][0];
         }
     }
@@ -92,8 +95,9 @@ public class inputMatrix {
             }
 
             // update path
-            String path = System.getProperty("user.dir") + "/" + fileName;
-            System.out.println(path);
+            String currentDirectory = System.getProperty("user.dir");
+            String parentDirectory = new File(currentDirectory).getParent();
+            String path = parentDirectory + '\\' + "test" + '\\' + fileName;
             File file = new File(path);
             Scanner fileContent = new Scanner(file);
 
@@ -108,9 +112,6 @@ public class inputMatrix {
             }
             fileContent.close();
 
-            System.out.println("row: " + row);
-            System.out.println("col: " + col);
-
             // input matrix
             double[][] Matrix = new double[row][col];
             Scanner fileMatrix = new Scanner(file);
@@ -122,12 +123,14 @@ public class inputMatrix {
                 }
             }
             fileMatrix.close();
-            input.close();
+            // input.close();
             return Matrix;
         }
 
         catch (FileNotFoundException e) {
             System.out.println("File not found!");
+            System.out.println();
+            menu.backToMenu();
             return new double[0][0];
         }
     }

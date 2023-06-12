@@ -56,14 +56,5 @@ This repository contains a library linear algebra using Java needed as a fullfil
 ```
 ## Local Setup
 1. Clone this repository
-2. Go to src folder:<br>
-<code>/src/</code>
-
-3. Compile by running: <br>
-<code>javac -d ../bin function/*.java utility/*.java apps/*.java</code>
-
-4. Go to bin folder: <br>
-<code>/bin/</code>
-
-5. Run menu program by using command: <br>
-<code>java utility.menu</code>
+2. Go to root folder then run this code on terminal:<br>
+<code>./run.bat</code>
