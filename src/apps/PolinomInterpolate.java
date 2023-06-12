@@ -37,7 +37,7 @@ public class PolinomInterpolate {
                 MatrixAns[i] = Y[i];
             }
             System.out.println();
-            obe1.ForwardOBE(Matrix, MatrixAns);
+            obe1.forwardElimination(Matrix, Y);
             obe2.BackwardOBE(Matrix, MatrixAns);
             System.out.println();
             double Sum = 0;
@@ -56,7 +56,7 @@ public class PolinomInterpolate {
             System.out.print("Masukkan nilai X yang akan ditaksir: ");
             double x = input.nextDouble();
             System.out.println();
-            obe1.ForwardOBE(MatrixEq, MatrixAns);
+            obe1.forwardElimination(MatrixEq, MatrixAns);
             obe2.BackwardOBE(MatrixEq, MatrixAns);
             System.out.println();
             double Sum = 0;

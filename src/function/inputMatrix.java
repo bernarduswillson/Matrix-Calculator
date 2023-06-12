@@ -33,7 +33,7 @@ public class inputMatrix {
                 ;
             }
         }
-        input.close();
+        // input.close();
         return choice;
     }
 

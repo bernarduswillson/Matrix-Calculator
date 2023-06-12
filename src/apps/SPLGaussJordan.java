@@ -52,7 +52,7 @@ public class SPLGaussJordan {
             for (int i = 0; i < ROW; i++)
                 MatrixAns[i] = input.nextDouble();
             System.out.println();
-            obe1.ForwardOBE(Matrix, MatrixAns);
+            obe1.forwardElimination(Matrix, MatrixAns);
             BackwardOBE(Matrix, MatrixAns);
             PrintEselon(Matrix, MatrixAns);  
             System.out.println();
@@ -70,7 +70,7 @@ public class SPLGaussJordan {
             double[][] MatrixEq = Regression.seperateMatrix(Matrix, ROW, COL);
             double[] MatrixAns = Regression.seperateMatrix1(Matrix, ROW, COL);
             
-            obe1.ForwardOBE(MatrixEq, MatrixAns);
+            obe1.forwardElimination(MatrixEq, MatrixAns);
             BackwardOBE(MatrixEq, MatrixAns);
             PrintEselon(MatrixEq, MatrixAns);
             System.out.println();
