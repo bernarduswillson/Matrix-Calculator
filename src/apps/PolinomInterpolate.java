@@ -8,9 +8,9 @@ public class PolinomInterpolate {
         Scanner input = new Scanner(System.in);
         SPLGauss obe1 = new SPLGauss();
         SPLGaussJordan obe2 = new SPLGaussJordan();
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM INTERPOLASI POLINOM\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

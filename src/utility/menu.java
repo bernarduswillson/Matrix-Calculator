@@ -1,57 +1,48 @@
 package utility;
+
 import java.util.*;
 
 import apps.*;
-import function.*;
-public class menu
-{
-    public static void main(String[] args) throws Exception 
-    {
+
+public class menu {
+    public static void main(String[] args) throws Exception {
         mainMenu();
     }
-    
-    public static void mainMenu () throws Exception
-    {
+
+    public static void mainMenu() throws Exception {
         Scanner input = new Scanner(System.in);
-        batas();
-        System.out.println("KALKULATOR MATRIKS");
+        border();
+        System.out.println("MATRIX CALCULATOR");
         Boolean status = true;
         int choice = 0;
-        while (status)
-        {
-            batas();
+        while (status) {
+            border();
             System.out.println("MENU");
-            System.out.println("1. Sistem Persamaan Linier");
-            System.out.println("2. Determinan");
-            System.out.println("3. Matriks balikan");
-            System.out.println("4. interpolasi Polinom");
-            System.out.println("5. Interpolasi Bicubic");
-            System.out.println("6. Regresi linier berganda");
-            System.out.println("7. Keluar");
-            batas();
-            System.out.println("Pilih kalkulator yang akan digunakan (1-7) : ");
+            System.out.println("1. Linear Equation System");
+            System.out.println("2. Determinant");
+            System.out.println("3. Inverse Matrix");
+            System.out.println("4. Polinom Interpolation");
+            System.out.println("5. Bicubic Interpolation");
+            System.out.println("6. Multiple Linear Regression");
+            System.out.println("7. Exit");
+            border();
+            System.out.println("Choose Menu (1-7) :");
             try {
                 choice = input.nextInt();
-                if (choice <= 7 && choice >= 1)
-                {
+                System.out.println(' ');
+                if (choice <= 7 && choice >= 1) {
                     status = false;
+                } else {
+                    System.out.println("Wrong input");
                 }
-                else
-                {
-                    System.out.println("Inputan salah");
-                }
-            } 
-            catch (NumberFormatException e) 
-            {
-                System.out.println("Inputan tidak valid");
+            } catch (NumberFormatException e) {
+                System.out.println("Input is not valid");
                 mainMenu();
                 continue;
+            } catch (Exception e) {
+                System.exit(0);
+                ;
             }
-            catch (Exception e) 
-            {
-                System.exit(0);;
-            }   
-            
         }
         switch (choice) {
             case 1:
@@ -63,8 +54,6 @@ public class menu
             case 3:
                 invMenu();
                 break;
-
-            // case 4-6 gaada menu kan ya? lgsg fungsinya?
             case 4:
                 PolinomInterpolate.functionPolinomInterpolate();
                 break;
@@ -72,56 +61,48 @@ public class menu
                 BicubicInterpolate.functionBicubicInterpolate();
                 break;
             case 6:
-                //regMenu();
+                // regMenu();
                 break;
             case 7:
-                System.exit(0);;
+                System.exit(0);
+                ;
                 break;
             default:
                 break;
         }
+        input.close();
     }
 
-    public static void splMenu () throws Exception
-    {
-        String batas = "=======================================";
+    public static void splMenu() throws Exception {
         Scanner input = new Scanner(System.in);
-
-        System.out.println("SISTEM PERSAMAAN LINIER");
+        System.out.println("LINEAR EQUATION SYSTEM");
         Boolean status = true;
         int choice = 0;
-        while (status)
-        {
-            batas();
-            System.out.println("METODE");
-            System.out.println("1. Metode eliminasi Gauss");
-            System.out.println("2. Metode eliminasi Gauss-Jordan");
-            System.out.println("3. Metode matriks balikan");
-            System.out.println("4. Kaidah Cramer");
-            System.out.println("5. Kembali ke menu utama");
-            batas();
-            System.out.println("Pilih metode yang akan digunakan (1-7) : ");
+        while (status) {
+            border();
+            System.out.println("METHOD");
+            System.out.println("1. Gauss Elimination Method");
+            System.out.println("2. Gauss-Jordan Elimination Method");
+            System.out.println("3. Inverse Matrix Method");
+            System.out.println("4. Cramer's Rule Method");
+            System.out.println("5. Back to main menu");
+            border();
+            System.out.println("Choose Method (1-5) : ");
             try {
                 choice = input.nextInt();
-                if (choice <= 5 && choice >= 1)
-                {
+                System.out.println(' ');
+                if (choice <= 5 && choice >= 1) {
                     status = false;
+                } else {
+                    System.out.println("Wrong input");
                 }
-                else
-                {
-                    System.out.println("Inputan salah");
-                }
-            } 
-            catch (NumberFormatException e) 
-            {
-                System.out.println("Inputan tidak valid");
+            } catch (NumberFormatException e) {
+                System.out.println("Input is not valid");
                 continue;
+            } catch (Exception e) {
+                System.exit(0);
+                ;
             }
-            catch (Exception e) 
-            {
-                System.exit(0);;
-            }   
-            
         }
         switch (choice) {
             case 1:
@@ -142,49 +123,38 @@ public class menu
             default:
                 break;
         }
+        input.close();
     }
 
-    
-    public static void detMenu () throws Exception
-    {
-        String batas = "=======================================";
+    public static void detMenu() throws Exception {
         Scanner input = new Scanner(System.in);
-
-        System.out.println("DETERMINAN");
+        System.out.println("DETERMINANT");
         Boolean status = true;
         int choice = 0;
-        while (status)
-        {
-            batas();
-            System.out.println("METODE");
-            System.out.println("1. Metode ekspansi kofaktor");
-            System.out.println("2. Metode matriks reduksi");
-            System.out.println("3. Kembali ke menu utama");
-            batas();
-            System.out.println("Pilih metode yang akan digunakan (1-3) : ");
+        while (status) {
+            border();
+            System.out.println("METHOD");
+            System.out.println("1. Cofactor Expansion Method");
+            System.out.println("2. Reduction Method");
+            System.out.println("3. Back to main menu");
+            border();
+            System.out.println("Choose Method (1-3) : ");
             try {
                 choice = input.nextInt();
-                if (choice <= 3 && choice >= 1)
-                {
+                System.out.println(' ');
+                if (choice <= 3 && choice >= 1) {
                     status = false;
+                } else {
+                    System.out.println("Wrong input");
                 }
-                else
-                {
-                    System.out.println("Inputan salah");
-                }
-            } 
-            catch (NumberFormatException e) 
-            {
-                System.out.println("Inputan tidak valid");
+            } catch (NumberFormatException e) {
+                System.out.println("Input is not valid");
                 continue;
+            } catch (Exception e) {
+                System.exit(0);
+                ;
             }
-            catch (Exception e) 
-            {
-                System.exit(0);;
-            }   
-            
         }
-
         switch (choice) {
             case 1:
                 DeterminantCofact.functionDetCofact();
@@ -198,47 +168,38 @@ public class menu
             default:
                 break;
         }
+        input.close();
     }
-    public static void invMenu () throws Exception
-    {
-        String batas = "=======================================";
-        Scanner input = new Scanner(System.in);
 
-        System.out.println("MATRIKS BALIKAN");
+    public static void invMenu() throws Exception {
+        Scanner input = new Scanner(System.in);
+        System.out.println("INVERSE MATRIX");
         Boolean status = true;
         int choice = 0;
-        while (status)
-        {
-            batas();
-            System.out.println("METODE");
-            System.out.println("1. Metode adjoin");
-            System.out.println("2. Metode matriks reduksi");
-            System.out.println("3. Kembali ke menu utama");
-            batas();
-            System.out.println("Pilih metode yang akan digunakan (1-3) : ");
+        while (status) {
+            border();
+            System.out.println("METHOD");
+            System.out.println("1. Adjoint Method");
+            System.out.println("2. Reduction Method");
+            System.out.println("3. Back to main menu");
+            border();
+            System.out.println("Choose Method (1-3) : ");
             try {
                 choice = input.nextInt();
-                if (choice <= 3 && choice >= 1)
-                {
+                System.out.println(' ');
+                if (choice <= 3 && choice >= 1) {
                     status = false;
+                } else {
+                    System.out.println("Wrong input");
                 }
-                else
-                {
-                    System.out.println("Inputan salah");
-                }
-            } 
-            catch (NumberFormatException e) 
-            {
-                System.out.println("Inputan tidak valid");
+            } catch (NumberFormatException e) {
+                System.out.println("Input is not valid");
                 continue;
+            } catch (Exception e) {
+                System.exit(0);
+                ;
             }
-            catch (Exception e) 
-            {
-                System.exit(0);;
-            }   
-            
         }
-
         switch (choice) {
             case 1:
                 InverseAdj.functionInverseAdj();
@@ -252,32 +213,28 @@ public class menu
             default:
                 break;
         }
+        input.close();
     }
 
-    public static void backToMenu () throws Exception
-    {
-        System.out.println("Apakah anda ingin menggunakan kalkulator lagi? (y/n)");
+    public static void backToMenu() throws Exception {
+        System.out.println("Do you want to use another method? (y/n)");
         Scanner input = new Scanner(System.in);
         String choice = input.nextLine();
-        if (choice.equals("y"))
-        {
+        System.out.println(' ');
+        if (choice.equals("y")) {
             mainMenu();
-        }
-        else if (choice.equals("n"))
-        {
+        } else if (choice.equals("n")) {
             System.exit(0);
-        }
-        else
-        {
-            System.out.println("Inputan salah");
+        } else {
+            System.out.println("Wrong input");
             backToMenu();
         }
+        input.close();
     }
 
-    public static void batas()   
-    {
-        String batas = "=======================================";
-        System.out.println(batas);
+    public static void border() {
+        String border = "=======================================";
+        System.out.println(border);
     }
-    
+
 }

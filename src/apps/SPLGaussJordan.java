@@ -31,9 +31,9 @@ public class SPLGaussJordan {
     public static void functionSPLGaussJordan() throws Exception {
         Scanner input = new Scanner(System.in);
         SPLGauss obe1 = new SPLGauss();
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM ELIMINASI GAUSS-JORDAN\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

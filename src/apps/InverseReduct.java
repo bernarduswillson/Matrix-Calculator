@@ -77,9 +77,9 @@ public class InverseReduct {
 
     public static void functionInverseReduct() throws Exception {
         Scanner input = new Scanner(System.in);
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM INVERS REDUKSI\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

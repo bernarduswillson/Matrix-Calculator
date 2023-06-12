@@ -32,9 +32,9 @@ public class DeterminantCofact {
 
     public static void functionDetCofact() throws Exception {
         Scanner input = new Scanner(System.in);
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM DETERMINAN KOFAKTOR\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

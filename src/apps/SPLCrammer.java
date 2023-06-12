@@ -41,9 +41,9 @@ public class SPLCrammer{
     public static void functionSPLCrammer() throws Exception {
         Scanner input = new Scanner(System.in);
         
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM SPL CRAMMER\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

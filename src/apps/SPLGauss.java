@@ -81,9 +81,9 @@ public class SPLGauss {
 
     public static void functionSPLGauss() throws Exception {
         Scanner input = new Scanner(System.in);
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM ELIMINASI GAUSS\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {

@@ -18,9 +18,9 @@ public class SPLInverse {
     public static void functionSPLInverse() throws Exception {
         Scanner input = new Scanner(System.in);
         InverseAdj inv = new InverseAdj();
-        menu.batas();
+        menu.border();
         System.out.println("PROGRAM SPL INVERS\n");
-        menu.batas();
+        menu.border();
         int choice = inputMatrix.inputMenu();
         if (choice == 1)
         {
