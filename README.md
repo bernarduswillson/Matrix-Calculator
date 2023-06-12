@@ -1,6 +1,6 @@
 README
 
-# Algeo01-21005
+# Matrix-Calculator
 - --
 ## General Information 
 This repository contains a library linear algebra using Java needed as a fullfilment for our 1st Big Project of IF2123 Linear and Geometric Algebra. This library contains source files to solve determinant, inverse, linear system equation such as interpolation and linear regression using various methods (Gauss, Gauss-Jordan, Inverse, and Cramer). 
