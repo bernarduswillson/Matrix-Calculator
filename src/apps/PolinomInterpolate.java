@@ -10,8 +10,8 @@ public class PolinomInterpolate {
     
     public static void functionPolinomInterpolate() throws Exception {
         Scanner input = new Scanner(System.in);
-        gauss obe1 = new gauss();
-        gaussJordan obe2 = new gaussJordan();
+        gaussSLE obe1 = new gaussSLE();
+        gaussJordanSLE obe2 = new gaussJordanSLE();
         menu.border();
         System.out.println("PROGRAM INTERPOLASI POLINOM\n");
         menu.border();

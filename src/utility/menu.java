@@ -106,13 +106,13 @@ public class menu {
         }
         switch (choice) {
             case 1:
-                gauss.calculate();
+                gaussSLE.calculate();
                 break;
             case 2:
-                gaussJordan.calculate();
+                gaussJordanSLE.calculate();
                 break;
             case 3:
-                SPLInverse.functionSPLInverse();
+                inverseSLE.functionSPLInverse();
                 break;
             case 4:
                 SPLCrammer.functionSPLCrammer();

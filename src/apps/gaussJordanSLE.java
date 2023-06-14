@@ -8,7 +8,7 @@ import Algorithm.backSubstitution;
 
 import Utility.*;
 
-public class gaussJordan {
+public class gaussJordanSLE {
     public static void calculate() throws Exception {
         double matrix[][] = new double[0][0];
         double matrixAns[] = new double[0];

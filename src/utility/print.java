@@ -7,7 +7,7 @@ public class print {
 
         if (type == 1)
             System.out.println("Matrix in Echelon Form using GAUSS: ");
-        if (type == 2)
+        else if (type == 2)
             System.out.println("Matrix in Echelon Form using GAUSS-JORDAN: ");
             
         for (int i = 0; i < ROW; i++) {
@@ -24,8 +24,10 @@ public class print {
 
         if (type == 1)
             System.out.println("Solution using GAUSS:");
-        if (type == 2)
+        else if (type == 2)
             System.out.println("Solution using GAUSS-JORDAN:");
+        else if (type == 3)
+            System.out.println("Solution using INVERSE:");
 
         for (int i = 0; i < ROW; i++) {
             System.out.printf("X%d = %.4f\n", (i + 1), solution[i]);

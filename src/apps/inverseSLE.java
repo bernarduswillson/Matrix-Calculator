@@ -2,13 +2,12 @@ package Apps;
 
 import java.util.Scanner;
 
-import Algorithm.forwardElimination;
-import Algorithm.backSubstitution;
-
+import Algorithm.multiplyMatrix;
+import Algorithm.inverseMatrix;
 import Utility.*;
 
-public class gauss {
-    public static void calculate() throws Exception {
+public class inverseSLE {
+    public static void functionSPLInverse() throws Exception {
         double matrix[][] = new double[0][0];
         double matrixAns[] = new double[0];
         Scanner input = new Scanner(System.in);
@@ -17,7 +16,7 @@ public class gauss {
         int COL = 0;
 
         menu.border();
-        System.out.println("GAUSS ELIMINATION METHOD");
+        System.out.println("INVERSE MATRIX METHOD");
         menu.border();
 
         if (choice == 1) {
@@ -47,13 +46,8 @@ public class gauss {
             matrix = inputMatrix.convertMatrix(matrixFile, ROW, COL);
             matrixAns = inputMatrix.convertMatrixAns(matrixFile, ROW, COL);
         }
-
-        forwardElimination.calculate(matrix, matrixAns);
-        print.echelonForm(matrix, matrixAns, 1);
-        double[] solution = backSubstitution.calculate(matrix, matrixAns);
-        print.solution(solution, 1);
-
-        menu.backToMenu();
-        // input.close();
+        
+        double[] matrixOut = multiplyMatrix.calculate(inverseMatrix.calculate(matrix), matrixAns);
+        print.solution(matrixOut, 3);
     }
 }
