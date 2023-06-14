@@ -1,8 +1,8 @@
-package Utility;
+package utility;
 
 import java.util.*;
 
-import Apps.*;
+import apps.*;
 
 public class menu {
     public static void main(String[] args) throws Exception {
@@ -115,7 +115,7 @@ public class menu {
                 inverseSLE.functionSPLInverse();
                 break;
             case 4:
-                SPLCrammer.functionSPLCrammer();
+                crammerSLE.functionSPLCrammer();
                 break;
             case 5:
                 mainMenu();

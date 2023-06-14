@@ -1,4 +1,4 @@
-package Apps;
+package apps;
 import java.util.*;
 public class Regression
 {

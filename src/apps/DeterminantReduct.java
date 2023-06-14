@@ -1,8 +1,8 @@
-package Apps;
+package apps;
 import java.util.Scanner;
 
-import Utility.inputMatrix;
-import Utility.menu;
+import utility.inputMatrix;
+import utility.menu;
 
 public class DeterminantReduct {
     static void DeterminantR(double[][] Mat) {

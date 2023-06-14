@@ -1,13 +1,11 @@
 package apps;
-
 import java.util.Scanner;
 
-import algorithm.inverseMatrix;
-import algorithm.multiplyMatrix;
+import algorithm.determinantCofactor;
 import utility.*;
 
-public class inverseSLE {
-    public static void functionSPLInverse() throws Exception {
+public class crammerSLE{
+    public static void functionSPLCrammer() throws Exception {
         double matrix[][] = new double[0][0];
         double matrixAns[] = new double[0];
         Scanner input = new Scanner(System.in);
@@ -16,7 +14,7 @@ public class inverseSLE {
         int COL = 0;
 
         menu.border();
-        System.out.println("INVERSE MATRIX METHOD");
+        System.out.println("CRAMMER'S RULE METHOD");
         menu.border();
 
         if (choice == 1) {
@@ -49,15 +47,33 @@ public class inverseSLE {
             matrixAns = inputMatrix.convertMatrixAns(matrixFile, ROW, COL);
             COL--;
         }
-
+        
         if (ROW != COL) {
-            System.out.println("The matrix is not a square matrix!\n");
+            System.out.println("Cannot be solved because the matrix is not square!\n");
             menu.backToMenu();
         }
-        
-        double[] solution = multiplyMatrix.calculate(inverseMatrix.calculate(matrix), matrixAns);
-        print.solution(solution, 3);
+        else if (determinantCofactor.calculate(matrix) == 0) {
+            System.out.println("Cannot be solved because the determinant is 0!\n");
+            menu.backToMenu();
+        }
 
+        double[][] subMatrix = new double[ROW][COL];
+        double determinant = determinantCofactor.calculate(matrix);
+        double[] solution = new double[ROW];
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < ROW; j++) {
+                for (int k = 0; k < COL; k++) {
+                    if (k == i) {
+                        subMatrix[j][k] = matrixAns[j];
+                    } else {
+                        subMatrix[j][k] = matrix[j][k];
+                    }
+                }
+            }
+            solution[i] = determinantCofactor.calculate(subMatrix) / determinant;
+        }
+        
+        print.solution(solution, 4);
         // input.close();
     }
 }

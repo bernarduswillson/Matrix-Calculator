@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 import java.io.*;
 import java.util.*;
@@ -15,7 +15,7 @@ public class inputMatrix {
             System.out.println("Choose Input (1-2): ");
             try {
                 choice = input.nextInt();
-                System.out.println(' ');
+                System.out.println();
                 if (choice <= 2 && choice >= 1) {
                     status = false;
                 } else {
@@ -42,7 +42,7 @@ public class inputMatrix {
             System.out.println(' ');
             // if file is empty
             if (Objects.isNull(fileName)) {
-                input.close();
+                // input.close();
                 throw new Exception();
             }
 
@@ -66,7 +66,7 @@ public class inputMatrix {
             Matrix[4][3] = 0;
 
             fileMatrix.close();
-            input.close();
+            // input.close();
             return Matrix;
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
@@ -86,7 +86,6 @@ public class inputMatrix {
 
             // if file is empty
             if (Objects.isNull(fileName)) {
-                // input.close();
                 throw new Exception();
             }
 

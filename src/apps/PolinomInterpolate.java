@@ -1,11 +1,11 @@
-package Apps;
+package apps;
 
 import java.util.Scanner;
 
-import Algorithm.forwardElimination;
-import Algorithm.backwardElimination;
-import Utility.inputMatrix;
-import Utility.menu;
+import algorithm.backwardElimination;
+import algorithm.forwardElimination;
+import utility.inputMatrix;
+import utility.menu;
 public class PolinomInterpolate {
     
     public static void functionPolinomInterpolate() throws Exception {

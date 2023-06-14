@@ -1,7 +1,7 @@
-package Apps;
+package apps;
 import java.util.*;
 
-import Utility.*;
+import utility.*;
 
 public class BicubicInterpolate {
     public static  double[] bicubicinterpolation(double[] matriks) {

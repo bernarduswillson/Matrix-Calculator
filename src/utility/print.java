@@ -1,4 +1,4 @@
-package Utility;
+package utility;
 
 public class print {
     public static void echelonForm(double[][] Mat, double[] MatAns, int type) {
@@ -28,6 +28,8 @@ public class print {
             System.out.println("Solution using GAUSS-JORDAN:");
         else if (type == 3)
             System.out.println("Solution using INVERSE:");
+        else if (type == 4)
+            System.out.println("Solution using CRAMMER:");
 
         for (int i = 0; i < ROW; i++) {
             System.out.printf("X%d = %.4f\n", (i + 1), solution[i]);

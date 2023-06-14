@@ -1,20 +1,19 @@
-package Apps;
+package apps;
 
 import java.util.Scanner;
 
-import Algorithm.forwardElimination;
-import Algorithm.backSubstitution;
-
-import Utility.*;
+import algorithm.backSubstitution;
+import algorithm.forwardElimination;
+import utility.*;
 
 public class gaussSLE {
     public static void calculate() throws Exception {
+        int ROW = 0;
+        int COL = 0;
         double matrix[][] = new double[0][0];
         double matrixAns[] = new double[0];
         Scanner input = new Scanner(System.in);
         int choice = inputMatrix.inputMenu();
-        int ROW = 0;
-        int COL = 0;
 
         menu.border();
         System.out.println("GAUSS ELIMINATION METHOD");
@@ -24,6 +23,8 @@ public class gaussSLE {
             System.out.print("Insert the size of the matrix (ROW COL): ");
             ROW = input.nextInt();
             COL = input.nextInt();
+            matrix = new double[ROW][COL];
+            matrixAns = new double[ROW];
             System.out.println();
 
             System.out

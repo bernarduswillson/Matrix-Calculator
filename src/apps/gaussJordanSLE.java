@@ -1,12 +1,11 @@
-package Apps;
+package apps;
 
 import java.util.Scanner;
 
-import Algorithm.forwardElimination;
-import Algorithm.backwardElimination;
-import Algorithm.backSubstitution;
-
-import Utility.*;
+import algorithm.backSubstitution;
+import algorithm.backwardElimination;
+import algorithm.forwardElimination;
+import utility.*;
 
 public class gaussJordanSLE {
     public static void calculate() throws Exception {
@@ -25,6 +24,8 @@ public class gaussJordanSLE {
             System.out.print("Insert the size of the matrix (ROW COL): ");
             ROW = input.nextInt();
             COL = input.nextInt();
+            matrix = new double[ROW][COL];
+            matrixAns = new double[ROW];
             System.out.println();
 
             System.out
