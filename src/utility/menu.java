@@ -1,8 +1,8 @@
-package utility;
+package Utility;
 
 import java.util.*;
 
-import apps.*;
+import Apps.*;
 
 public class menu {
     public static void main(String[] args) throws Exception {
@@ -70,7 +70,7 @@ public class menu {
             default:
                 break;
         }
-        input.close();
+        // input.close();
     }
 
     public static void splMenu() throws Exception {
@@ -106,10 +106,10 @@ public class menu {
         }
         switch (choice) {
             case 1:
-                SPLGauss.functionSPLGauss();
+                gauss.calculate();
                 break;
             case 2:
-                SPLGaussJordan.functionSPLGaussJordan();
+                gaussJordan.calculate();
                 break;
             case 3:
                 SPLInverse.functionSPLInverse();
@@ -123,7 +123,7 @@ public class menu {
             default:
                 break;
         }
-        input.close();
+        // input.close();
     }
 
     public static void detMenu() throws Exception {
@@ -168,7 +168,7 @@ public class menu {
             default:
                 break;
         }
-        input.close();
+        // input.close();
     }
 
     public static void invMenu() throws Exception {
@@ -213,7 +213,7 @@ public class menu {
             default:
                 break;
         }
-        input.close();
+        // input.close();
     }
 
     public static void backToMenu() throws Exception {
@@ -229,7 +229,7 @@ public class menu {
             System.out.println("Wrong input");
             backToMenu();
         }
-        input.close();
+        // input.close();
     }
 
     public static void border() {

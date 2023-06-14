@@ -1,4 +1,4 @@
 cd src
-javac -d ../bin function/*.java utility/*.java apps/*.java
+javac -d ../bin Algorithm/*.java Apps/*.java Utility/*.java
 cd ../bin
-java utility.menu
+java Utility.menu

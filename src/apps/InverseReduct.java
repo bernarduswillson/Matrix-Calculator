@@ -1,7 +1,8 @@
-package apps;
+package Apps;
 import java.util.Scanner;
-import function.inputMatrix;
-import utility.menu;
+
+import Utility.inputMatrix;
+import Utility.menu;
 
 public class InverseReduct {
     static void ForwardOBE(double[][] Mat, double[][] MatAns) {

@@ -1,7 +1,8 @@
-package apps;
+package Apps;
 import java.util.Scanner;
-import function.*;
-import utility.*;
+
+
+import Utility.*;
 
 public class SPLCrammer{
     public static void main(String[] args) throws Exception {

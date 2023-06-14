@@ -1,8 +1,7 @@
-package function;
+package Utility;
 
 import java.io.*;
 import java.util.*;
-import utility.*;
 
 public class inputMatrix {
     public static int inputMenu() {
@@ -19,16 +18,13 @@ public class inputMatrix {
                 System.out.println(' ');
                 if (choice <= 2 && choice >= 1) {
                     status = false;
-                }
-                else {
+                } else {
                     System.out.println("Wrong input");
                 }
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Input is not valid");
                 continue;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.exit(0);
                 ;
             }
@@ -86,11 +82,11 @@ public class inputMatrix {
             System.out.println("Insert file name (example: bernard.txt): ");
             Scanner input = new Scanner(System.in);
             String fileName = input.nextLine();
-            System.out.println(' ');
+            System.out.println();
 
             // if file is empty
             if (Objects.isNull(fileName)) {
-                input.close();
+                // input.close();
                 throw new Exception();
             }
 
@@ -110,7 +106,7 @@ public class inputMatrix {
                 col = lineBersih.length;
                 row++;
             }
-            fileContent.close();
+            // fileContent.close();
 
             // input matrix
             double[][] Matrix = new double[row][col];
@@ -122,7 +118,7 @@ public class inputMatrix {
                     }
                 }
             }
-            fileMatrix.close();
+            // fileMatrix.close();
             // input.close();
             return Matrix;
         }
@@ -133,5 +129,29 @@ public class inputMatrix {
             menu.backToMenu();
             return new double[0][0];
         }
+    }
+
+    public static double[][] convertMatrix(double[][] matriks, int row, int col) {
+        double[][] m1 = new double[row][col - 1];
+        double[] m2 = new double[row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col - 1; j++) {
+                m1[i][j] = matriks[i][j];
+            }
+            m2[i] = matriks[i][col - 1];
+        }
+        return m1;
+    }
+
+    public static double[] convertMatrixAns(double[][] matriks, int row, int col) {
+        double[][] m1 = new double[row][col - 1];
+        double[] m2 = new double[row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col - 1; j++) {
+                m1[i][j] = matriks[i][j];
+            }
+            m2[i] = matriks[i][col - 1];
+        }
+        return m2;
     }
 }

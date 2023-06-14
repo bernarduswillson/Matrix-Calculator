@@ -1,7 +1,8 @@
-package apps;
+package Apps;
 import java.util.Scanner;
-import function.inputMatrix;
-import utility.menu;
+
+import Utility.inputMatrix;
+import Utility.menu;
 public class InverseAdj{
     static double[][] Cofactor(double[][] Mat) {
         DeterminantCofact Det = new DeterminantCofact();

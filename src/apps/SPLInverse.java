@@ -1,7 +1,7 @@
-package apps;
+package Apps;
 import java.util.*;
-import utility.*;
-import function.*;
+
+import Utility.*;
 public class SPLInverse {
     static double[] multiplyMatrix(double[][] Mat, double[] MatAns) {
         int ROW = Mat.length;

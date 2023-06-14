@@ -1,13 +1,17 @@
-package apps;
+package Apps;
+
 import java.util.Scanner;
-import function.inputMatrix;
-import utility.menu;
+
+import Algorithm.forwardElimination;
+import Algorithm.backwardElimination;
+import Utility.inputMatrix;
+import Utility.menu;
 public class PolinomInterpolate {
     
     public static void functionPolinomInterpolate() throws Exception {
         Scanner input = new Scanner(System.in);
-        SPLGauss obe1 = new SPLGauss();
-        SPLGaussJordan obe2 = new SPLGaussJordan();
+        gauss obe1 = new gauss();
+        gaussJordan obe2 = new gaussJordan();
         menu.border();
         System.out.println("PROGRAM INTERPOLASI POLINOM\n");
         menu.border();
@@ -37,8 +41,8 @@ public class PolinomInterpolate {
                 MatrixAns[i] = Y[i];
             }
             System.out.println();
-            obe1.forwardElimination(Matrix, Y);
-            obe2.BackwardOBE(Matrix, MatrixAns);
+            forwardElimination.calculate(Matrix, MatrixAns);
+            backwardElimination.calculate(Matrix, MatrixAns);
             System.out.println();
             double Sum = 0;
             for (int i = 0; i < N; i++) {
@@ -56,8 +60,8 @@ public class PolinomInterpolate {
             System.out.print("Masukkan nilai X yang akan ditaksir: ");
             double x = input.nextDouble();
             System.out.println();
-            obe1.forwardElimination(MatrixEq, MatrixAns);
-            obe2.BackwardOBE(MatrixEq, MatrixAns);
+            forwardElimination.calculate(Matrix, MatrixAns);
+            backwardElimination.calculate(Matrix, MatrixAns);
             System.out.println();
             double Sum = 0;
             for (int i = 0; i < Matrix.length; i++) {
