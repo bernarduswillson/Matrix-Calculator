@@ -46,8 +46,16 @@ public class inverseSLE {
             matrix = inputMatrix.convertMatrix(matrixFile, ROW, COL);
             matrixAns = inputMatrix.convertMatrixAns(matrixFile, ROW, COL);
         }
+
+        if (ROW != COL) {
+            System.out.println("The matrix is not a square matrix!");
+            System.out.println();
+            menu.backToMenu();
+        }
         
         double[] matrixOut = multiplyMatrix.calculate(inverseMatrix.calculate(matrix), matrixAns);
         print.solution(matrixOut, 3);
+
+        // input.close();
     }
 }

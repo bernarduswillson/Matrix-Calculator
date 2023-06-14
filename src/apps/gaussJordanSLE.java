@@ -55,7 +55,6 @@ public class gaussJordanSLE {
         double[] solution = backSubstitution.calculate(matrix, matrixAns);
         print.solution(solution, 2);
 
-        menu.backToMenu();
         // input.close();
     }
 }

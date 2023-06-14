@@ -19,7 +19,7 @@ public class print {
         System.out.println();
     }
 
-    public static void solution(double[] solution, int type) {
+    public static void solution(double[] solution, int type) throws Exception {
         int ROW = solution.length;
 
         if (type == 1)
@@ -33,5 +33,6 @@ public class print {
             System.out.printf("X%d = %.4f\n", (i + 1), solution[i]);
         }
         System.out.println();
+        menu.backToMenu();
     }
 }

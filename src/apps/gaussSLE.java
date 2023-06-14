@@ -53,7 +53,6 @@ public class gaussSLE {
         double[] solution = backSubstitution.calculate(matrix, matrixAns);
         print.solution(solution, 1);
 
-        menu.backToMenu();
         // input.close();
     }
 }
