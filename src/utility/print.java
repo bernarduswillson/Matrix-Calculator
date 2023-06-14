@@ -37,4 +37,15 @@ public class print {
         System.out.println();
         menu.backToMenu();
     }
+
+    public static void determinant(double determinant, int type) throws Exception{
+        if (type == 1)
+            System.out.println("Determinant using COFACTOR EXPANSION:");
+        else if (type == 2)
+            System.out.println("Determinant using REDUCTION:");
+
+        System.out.printf("%.4f\n", determinant);
+        System.out.println();
+        menu.backToMenu();
+    }
 }

@@ -112,10 +112,10 @@ public class menu {
                 gaussJordanSLE.calculate();
                 break;
             case 3:
-                inverseSLE.functionSPLInverse();
+                inverseSLE.calculate();
                 break;
             case 4:
-                crammerSLE.functionSPLCrammer();
+                crammerSLE.calculate();
                 break;
             case 5:
                 mainMenu();
@@ -157,7 +157,7 @@ public class menu {
         }
         switch (choice) {
             case 1:
-                DeterminantCofact.functionDetCofact();
+                cofactorDeterminant.calculate();
                 break;
             case 2:
                 DeterminantReduct.functionDetReduct();

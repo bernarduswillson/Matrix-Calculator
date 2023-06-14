@@ -1,11 +1,10 @@
 package apps;
-import java.util.Scanner;
 
-import algorithm.determinantCofactor;
+import algorithm.cofactorExpansion;
 import utility.*;
 
 public class crammerSLE{
-    public static void functionSPLCrammer() throws Exception {
+    public static void calculate() throws Exception {
         menu.border();
         System.out.println("CRAMMER'S RULE METHOD");
         menu.border();
@@ -20,13 +19,13 @@ public class crammerSLE{
             System.out.println("Cannot be solved because the matrix is not square!\n");
             menu.backToMenu();
         }
-        else if (determinantCofactor.calculate(matrix) == 0) {
+        else if (cofactorExpansion.calculate(matrix) == 0) {
             System.out.println("Cannot be solved because the determinant is 0!\n");
             menu.backToMenu();
         }
 
         double[][] subMatrix = new double[row][col];
-        double determinant = determinantCofactor.calculate(matrix);
+        double determinant = cofactorExpansion.calculate(matrix);
         double[] solution = new double[row];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
@@ -38,7 +37,7 @@ public class crammerSLE{
                     }
                 }
             }
-            solution[i] = determinantCofactor.calculate(subMatrix) / determinant;
+            solution[i] = cofactorExpansion.calculate(subMatrix) / determinant;
         }
         
         print.solution(solution, 4);

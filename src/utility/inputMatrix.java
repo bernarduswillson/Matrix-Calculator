@@ -155,40 +155,83 @@ public class inputMatrix {
     }
     
     public static matrixData inputMat() throws Exception {
-    int row = 0;
-    int col = 0;
-    double[][] mat = null;
-    double[] matAns = null;
-    Scanner input = new Scanner(System.in);
-    int choice = inputMatrix.inputMenu();
+        int row = 0;
+        int col = 0;
+        double[][] mat = null;
+        double[] matAns = null;
+        Scanner input = new Scanner(System.in);
+        int choice = inputMatrix.inputMenu();
 
-    if (choice == 1) {
-        System.out.print("Insert the size of the matrix (ROW COL): ");
-        row = input.nextInt();
-        col = input.nextInt();
-        mat = new double[row][col];
-        matAns = new double[row];
-        System.out.println();
+        if (choice == 1) {
+            System.out.print("Insert the size of the matrix (ROW COL): ");
+            row = input.nextInt();
+            col = input.nextInt();
+            mat = new double[row][col];
+            matAns = new double[row];
+            System.out.println();
 
-        System.out.println("Insert the elements of the matrix (use space as separator and enter to move to next row): ");
-        for (int i = 0; i < row; i++)
-            for (int j = 0; j < col; j++)
-                mat[i][j] = input.nextDouble();
-        System.out.println();
+            System.out.println(
+                    "Insert the elements of the matrix (use space as separator and enter to move to next row): ");
+            for (int i = 0; i < row; i++)
+                for (int j = 0; j < col; j++)
+                    mat[i][j] = input.nextDouble();
+            System.out.println();
 
-        System.out.println("Insert the elements of the matrix answer (use space as separator and enter to move to next row): ");
-        for (int i = 0; i < row; i++)
-            matAns[i] = input.nextDouble();
-        System.out.println();
+            System.out.println(
+                    "Insert the elements of the matrix answer (use space as separator and enter to move to next row): ");
+            for (int i = 0; i < row; i++)
+                matAns[i] = input.nextDouble();
+            System.out.println();
 
-    } else if (choice == 2) {
-        double[][] matrixFile = inputMatrix.readFile();
-        row = matrixFile.length;
-        col = matrixFile[0].length;
-        mat = inputMatrix.convertMatrix(matrixFile, row, col);
-        matAns = inputMatrix.convertMatrixAns(matrixFile, row, col);
+        } else if (choice == 2) {
+            double[][] matrixFile = inputMatrix.readFile();
+            row = matrixFile.length;
+            col = matrixFile[0].length;
+            mat = inputMatrix.convertMatrix(matrixFile, row, col);
+            matAns = inputMatrix.convertMatrixAns(matrixFile, row, col);
+        }
+
+        return new matrixData(mat, matAns);
     }
+    
+    public static matrixData inputMatOnly() throws Exception {
+        int row = 0;
+        int col = 0;
+        double[][] mat = null;
+        double[] matAns = null;
+        double[][] appendedMatrix = null;
+        Scanner input = new Scanner(System.in);
+        int choice = inputMatrix.inputMenu();
 
-    return new matrixData(mat, matAns);
-}
+        if (choice == 1) {
+            System.out.print("Insert the size of the matrix (ROW COL): ");
+            row = input.nextInt();
+            col = input.nextInt();
+            mat = new double[row][col];
+            System.out.println();
+
+            System.out.println("Insert the elements of the matrix (use space as separator and enter to move to next row): ");
+            for (int i = 0; i < row; i++)
+                for (int j = 0; j < col; j++)
+                    mat[i][j] = input.nextDouble();
+            System.out.println();
+
+        } else if (choice == 2) {
+            double[][] matrixFile = inputMatrix.readFile();
+            row = matrixFile.length;
+            col = matrixFile[0].length;
+            mat = inputMatrix.convertMatrix(matrixFile, row, col);
+            matAns = inputMatrix.convertMatrixAns(matrixFile, row, col);
+
+            appendedMatrix = new double[row][col];
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col - 1; j++) {
+                    appendedMatrix[i][j] = mat[i][j];
+                }
+                appendedMatrix[i][col - 1] = matAns[i];
+            }
+        }
+
+        return new matrixData(appendedMatrix, matAns);
+    }
 }

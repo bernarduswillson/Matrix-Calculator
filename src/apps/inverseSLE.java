@@ -1,13 +1,11 @@
 package apps;
 
-import java.util.Scanner;
-
 import algorithm.inverseMatrix;
 import algorithm.multiplyMatrix;
 import utility.*;
 
 public class inverseSLE {
-    public static void functionSPLInverse() throws Exception {
+    public static void calculate() throws Exception {
         menu.border();
         System.out.println("GAUSS ELIMINATION METHOD");
         menu.border();

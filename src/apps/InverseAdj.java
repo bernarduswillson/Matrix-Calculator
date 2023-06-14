@@ -1,11 +1,12 @@
 package apps;
 import java.util.Scanner;
 
+import algorithm.cofactorExpansion;
 import utility.inputMatrix;
 import utility.menu;
 public class InverseAdj{
     static double[][] Cofactor(double[][] Mat) {
-        DeterminantCofact Det = new DeterminantCofact();
+        cofactorDeterminant Det = new cofactorDeterminant();
         int ROW = Mat.length;
         int COL = Mat[0].length;
         double[][] Cofactor = new double[ROW][COL];
@@ -37,7 +38,7 @@ public class InverseAdj{
                             }
                         }
                     }
-                    Cofactor[i][j] = (double)Math.pow(-1,i+j)*Det.DeterminantC(subMatrix);
+                    Cofactor[i][j] = (double)Math.pow(-1,i+j) * cofactorExpansion.calculate(subMatrix);
                 }
             }
             return Cofactor;
@@ -58,7 +59,7 @@ public class InverseAdj{
     }
 
     static double[][] Inverse(double[][] Mat) {
-        DeterminantCofact Det = new DeterminantCofact();
+        cofactorDeterminant Det = new cofactorDeterminant();
         int ROW = Mat.length;
         int COL = Mat[0].length;
         double[][] Inverse = new double[ROW][COL];
@@ -68,7 +69,7 @@ public class InverseAdj{
         }
         else {
             double[][] Cofactor = Cofactor(Mat);
-            Inverse = MultiplyByConst(Transpose(Cofactor),(1/Det.DeterminantC(Mat)));
+            Inverse = MultiplyByConst(Transpose(Cofactor),(1 / cofactorExpansion.calculate(Mat)));
             return Inverse;
         }
     }

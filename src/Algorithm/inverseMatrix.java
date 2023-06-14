@@ -2,35 +2,35 @@ package algorithm;
 
 public class inverseMatrix {
     public static double[][] calculate(double[][] mat) {
-        int ROW = mat.length;
-        int COL = mat[0].length;
-        double[][] inverse = new double[ROW][COL];
-        if (ROW == 1) {
+        int row = mat.length;
+        int col = mat[0].length;
+        double[][] inverse = new double[row][col];
+        if (row == 1) {
             inverse[0][0] = 1 / mat[0][0];
             return inverse;
         } else {
             double[][] cofactor = cofactor(mat);
-            inverse = multiplyByConst(transpose(cofactor), (1 / determinantCofactor.calculate(mat)));
+            inverse = multiplyByConst(transpose(cofactor), (1 / cofactorExpansion.calculate(mat)));
             return inverse;
         }
     }
 
     static double[][] cofactor(double[][] mat) {
-        int ROW = mat.length;
-        int COL = mat[0].length;
-        double[][] Cofactor = new double[ROW][COL];
+        int row = mat.length;
+        int col = mat[0].length;
+        double[][] Cofactor = new double[row][col];
 
-        if (ROW == 1) {
+        if (row == 1) {
             Cofactor[0][0] = 1;
             return Cofactor;
         }
 
         else {
-            for (int i = 0; i < ROW; i++) {
-                for (int j = 0; j < COL; j++) {
-                    double[][] submatrix = new double[ROW - 1][COL - 1];
-                    for (int k = 0; k < ROW - 1; k++) {
-                        for (int l = 0; l < COL - 1; l++) {
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < col; j++) {
+                    double[][] submatrix = new double[row - 1][col - 1];
+                    for (int k = 0; k < row - 1; k++) {
+                        for (int l = 0; l < col - 1; l++) {
                             if (k < i) {
                                 if (l < j) {
                                     submatrix[k][l] = mat[k][l];
@@ -49,7 +49,7 @@ public class inverseMatrix {
                         }
                     }
 
-                    Cofactor[i][j] = (double) Math.pow(-1, i + j) * determinantCofactor.calculate(submatrix);
+                    Cofactor[i][j] = (double) Math.pow(-1, i + j) * cofactorExpansion.calculate(submatrix);
                 }
             }
             return Cofactor;
@@ -57,10 +57,10 @@ public class inverseMatrix {
     }
 
     static double[][] transpose(double[][] mat) {
-        int ROW = mat.length;
-        int COL = mat[0].length;
-        for (int i = 0; i < ROW; i++) {
-            for (int j = i; j < COL; j++) {
+        int row = mat.length;
+        int col = mat[0].length;
+        for (int i = 0; i < row; i++) {
+            for (int j = i; j < col; j++) {
                 double Temp = mat[i][j];
                 mat[i][j] = mat[j][i];
                 mat[j][i] = Temp;
@@ -70,11 +70,11 @@ public class inverseMatrix {
     }
 
     static double[][] multiplyByConst(double[][] mat, double k) {
-        int ROW = mat.length;
-        int COL = mat[0].length;
-        double[][] mOut = new double[ROW][COL];
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
+        int row = mat.length;
+        int col = mat[0].length;
+        double[][] mOut = new double[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 mOut[i][j] = mat[i][j] * k;
             }
         }

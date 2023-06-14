@@ -2,11 +2,11 @@ package algorithm;
 
 public class multiplyMatrix {
     public static double[] calculate(double[][] mat, double[] matAns) {
-        int ROW = mat.length;
-        int COL = mat[0].length;
-        double[] mOut = new double[ROW];
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
+        int row = mat.length;
+        int col = mat[0].length;
+        double[] mOut = new double[row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
                 mOut[i] += mat[i][j] * matAns[j];
             }
         }
