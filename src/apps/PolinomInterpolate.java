@@ -2,8 +2,8 @@ package apps;
 
 import java.util.Scanner;
 
-import algorithm.backwardElimination;
-import algorithm.forwardElimination;
+import cek.backwardElimination;
+import cek.forwardElimination;
 import utility.inputMatrix;
 import utility.menu;
 public class PolinomInterpolate {

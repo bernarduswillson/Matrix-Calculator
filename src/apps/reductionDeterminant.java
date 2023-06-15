@@ -1,6 +1,6 @@
 package apps;
 
-import algorithm.reduction;
+import cek.reduction;
 import utility.*;
 
 public class reductionDeterminant {

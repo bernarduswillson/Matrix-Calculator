@@ -1,7 +1,7 @@
 package apps;
 
-import algorithm.backSubstitution;
-import algorithm.forwardElimination;
+import cek.backSubstitution;
+import cek.forwardElimination;
 import utility.*;
 
 public class gaussSLE {

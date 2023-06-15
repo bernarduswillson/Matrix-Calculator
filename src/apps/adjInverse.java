@@ -1,6 +1,6 @@
 package apps;
 
-import algorithm.adjointInverse;
+import cek.adjointInverse;
 import utility.*;
 
 public class adjInverse{

@@ -1,4 +1,4 @@
-package algorithm;
+package cek;
 
 public class reduction {
     public static double calculate(double[][] mat, int row) {

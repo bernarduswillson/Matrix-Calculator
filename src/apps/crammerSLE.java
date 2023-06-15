@@ -1,6 +1,6 @@
 package apps;
 
-import algorithm.cofactorExpansion;
+import cek.cofactorExpansion;
 import utility.*;
 
 public class crammerSLE{

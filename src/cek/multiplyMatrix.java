@@ -1,4 +1,4 @@
-package algorithm;
+package cek;
 
 public class multiplyMatrix {
     public static double[] calculate(double[][] mat, double[] matAns) {

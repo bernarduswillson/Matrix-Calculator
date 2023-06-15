@@ -1,8 +1,8 @@
 package apps;
 
-import algorithm.backSubstitution;
-import algorithm.backwardElimination;
-import algorithm.forwardElimination;
+import cek.backSubstitution;
+import cek.backwardElimination;
+import cek.forwardElimination;
 import utility.*;
 
 public class gaussJordanSLE {
