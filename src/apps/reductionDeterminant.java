@@ -1,6 +1,6 @@
 package apps;
 
-import algorithm.reduction;
+import algorithm.forwardElimination;
 import utility.*;
 
 public class reductionDeterminant {
@@ -19,7 +19,18 @@ public class reductionDeterminant {
             menu.backToMenu();
         }
 
-        double determinant = reduction.calculate(matrix, row);
+        int[] p = { 0 };
+        forwardElimination.calculate(matrix, p);
+
+        double determinant = 1;
+        for (int i = 0; i < row; i++) {
+            determinant *= matrix[i][i];
+        }
+        
+        if (p[0] % 2 == 1) {
+            determinant *= -1;
+        }
+
         print.matrixForm(matrix, 1);
         print.determinant(determinant, 2);
     }
