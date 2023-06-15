@@ -18,14 +18,36 @@ public class print {
         }
         System.out.println();
     }
+
+    public static void echelonForm(double[][] mat, double[][] matAns, int type) {
+        int row = mat.length;
+        int col = mat[0].length;
+
+        if (type == 1)
+            System.out.println("Matrix in Echelon Form after REDUCTION INVERSE: ");
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.printf("%.3f\t", mat[i][j]);
+            }
+            System.out.print("  |\t");
+            for (int j = 0; j < col; j++) {
+                System.out.printf("%.3f\t", matAns[i][j]);
+            }
+            System.out.println();
+        }
+    }
     
     public static void matrixForm(double[][] mat, int type) throws Exception {
         int row = mat.length;
         int col = mat[0].length;
+
         if (type == 1)
             System.out.println("Matrix after REDUCTION: ");
         else if (type == 2)
             System.out.println("Matrix after ADJOINT INVERSE:");
+        else if (type == 3)
+            System.out.println("Matrix after REDUCTION INVERSE:");
             
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
@@ -35,7 +57,7 @@ public class print {
         }
         System.out.println();
 
-        if (type == 2 || type == 3)
+        if (type == 2 || type == 3 || type == 4)
             menu.backToMenu();
     }
 

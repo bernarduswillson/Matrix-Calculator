@@ -5,7 +5,7 @@ import utility.*;
 
 public class BicubicInterpolate {
     public static  double[] bicubicinterpolation(double[] matriks) {
-        InverseReduct obe = new InverseReduct();
+        reductionInverse obe = new reductionInverse();
         double [][] matrix2 = new double[16][16];
         int K = 0;
         for (int j= 0; j<4; j++) {
@@ -40,8 +40,8 @@ public class BicubicInterpolate {
             }
         }
         double[] matriksa = new double[16];
-        obe.ForwardOBE(matrix2, IdentityMat);
-        obe.BackwardOBE(matrix2, IdentityMat);
+        // obe.ForwardOBE(matrix2, IdentityMat);
+        // obe.BackwardOBE(matrix2, IdentityMat);
         matriksa = multiplyMatrix(IdentityMat, matriks);
         return matriksa;
     }

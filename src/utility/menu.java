@@ -205,7 +205,7 @@ public class menu {
                 adjInverse.calculate();
                 break;
             case 2:
-                InverseReduct.functionInverseReduct();
+                reductionInverse.calculate();
                 break;
             case 3:
                 mainMenu();
