@@ -1,4 +1,4 @@
-package cek;
+package algorithm;
 
 public class backwardElimination {
     public static void calculate(double[][] mat, double[] matAns) {

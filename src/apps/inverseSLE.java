@@ -1,7 +1,7 @@
 package apps;
 
-import cek.adjointInverse;
-import cek.multiplyMatrix;
+import algorithm.adjointInverse;
+import algorithm.multiplyMatrix;
 import utility.*;
 
 public class inverseSLE {

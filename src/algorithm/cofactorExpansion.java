@@ -1,4 +1,4 @@
-package cek;
+package algorithm;
 
 public class cofactorExpansion {
     public static double calculate(double[][] mat) {

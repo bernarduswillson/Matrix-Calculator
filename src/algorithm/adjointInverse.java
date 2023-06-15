@@ -1,4 +1,4 @@
-package cek;
+package algorithm;
 
 public class adjointInverse {
     public static double[][] calculate(double[][] mat) {

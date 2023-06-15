@@ -1,4 +1,4 @@
-package cek;
+package algorithm;
 
 import utility.menu;
 

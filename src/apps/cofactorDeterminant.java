@@ -1,6 +1,6 @@
 package apps;
 
-import cek.cofactorExpansion;
+import algorithm.cofactorExpansion;
 import utility.*;
 
 public class cofactorDeterminant {
