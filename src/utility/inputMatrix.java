@@ -33,49 +33,6 @@ public class inputMatrix {
         return choice;
     }
 
-    public static double[][] readFileBicubic() throws Exception {
-        try {
-            // input file
-            System.out.println("Insert file name (example: bernard.txt): ");
-            Scanner input = new Scanner(System.in);
-            String fileName = input.nextLine();
-            System.out.println(' ');
-            // if file is empty
-            if (Objects.isNull(fileName)) {
-                // input.close();
-                throw new Exception();
-            }
-
-            // update path
-            String currentDirectory = System.getProperty("user.dir");
-            String parentDirectory = new File(currentDirectory).getParent();
-            String path = parentDirectory + '\\' + "test" + '\\' + fileName;
-            File file = new File(path);
-
-            double[][] Matrix = new double[5][4];
-            Scanner fileMatrix = new Scanner(file);
-
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    Matrix[i][j] = fileMatrix.nextDouble();
-                }
-            }
-            Matrix[4][0] = fileMatrix.nextDouble();
-            Matrix[4][1] = fileMatrix.nextDouble();
-            Matrix[4][2] = 0;
-            Matrix[4][3] = 0;
-
-            fileMatrix.close();
-            // input.close();
-            return Matrix;
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
-            System.out.println();
-            menu.backToMenu();
-            return new double[0][0];
-        }
-    }
-
     public static double[][] readFile() throws Exception {
         try {
             // input file

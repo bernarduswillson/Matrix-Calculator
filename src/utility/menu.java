@@ -58,10 +58,11 @@ public class menu {
                 polinomInterpolate.calculate();
                 break;
             case 5:
-                BicubicInterpolate.functionBicubicInterpolate();
+                bicubicInterpolate.calculate();
                 break;
             case 6:
-                // regMenu();
+                System.out.println("Sorry, this feature is not available yet :D\n");
+                mainMenu();
                 break;
             case 7:
                 System.exit(0);
