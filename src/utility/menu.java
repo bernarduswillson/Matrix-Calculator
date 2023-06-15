@@ -160,7 +160,7 @@ public class menu {
                 cofactorDeterminant.calculate();
                 break;
             case 2:
-                DeterminantReduct.functionDetReduct();
+                reductionDeterminant.functionDetReduct();
                 break;
             case 3:
                 mainMenu();

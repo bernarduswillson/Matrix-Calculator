@@ -1,12 +1,14 @@
 package apps;
 
-import algorithm.cofactorExpansion;
+import java.util.Scanner;
+
+import algorithm.reduction;
 import utility.*;
 
-public class cofactorDeterminant {
-    public static void calculate() throws Exception {
+public class reductionDeterminant {
+    public static void functionDetReduct() throws Exception {
         menu.border();
-        System.out.println("COFACTOR EXPANSION METHOD FOR DETERMINANT");
+        System.out.println("REDUCTION METHOD FOR DETERMINANT");
         menu.border();
 
         matrixData matrixData = inputMatrix.inputMatOnly();
@@ -19,7 +21,9 @@ public class cofactorDeterminant {
             menu.backToMenu();
         }
 
-        double determinant = cofactorExpansion.calculate(matrix);
-        print.determinant(determinant, 1);
+        double determinant = reduction.calculate(matrix, row);
+        print.determinantMatrixForm(matrix);
+        print.determinant(determinant, 2);
+        menu.backToMenu();
     }
 }

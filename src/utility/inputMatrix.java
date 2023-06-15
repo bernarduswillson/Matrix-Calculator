@@ -230,8 +230,9 @@ public class inputMatrix {
                 }
                 appendedMatrix[i][col - 1] = matAns[i];
             }
+            mat = appendedMatrix;
         }
 
-        return new matrixData(appendedMatrix, matAns);
+        return new matrixData(mat, matAns);
     }
 }
