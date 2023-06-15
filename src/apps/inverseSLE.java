@@ -1,13 +1,13 @@
 package apps;
 
-import algorithm.inverseMatrix;
+import algorithm.adjointInverse;
 import algorithm.multiplyMatrix;
 import utility.*;
 
 public class inverseSLE {
     public static void calculate() throws Exception {
         menu.border();
-        System.out.println("GAUSS ELIMINATION METHOD");
+        System.out.println("INVERSE MATRIX METHOD");
         menu.border();
 
         matrixData matrixData = inputMatrix.inputMat();
@@ -21,9 +21,7 @@ public class inverseSLE {
             menu.backToMenu();
         }
         
-        double[] solution = multiplyMatrix.calculate(inverseMatrix.calculate(matrix), matrixAns);
+        double[] solution = multiplyMatrix.calculate(adjointInverse.calculate(matrix), matrixAns);
         print.solution(solution, 3);
-
-        // input.close();
     }
 }

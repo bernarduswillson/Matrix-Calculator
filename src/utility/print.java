@@ -19,10 +19,14 @@ public class print {
         System.out.println();
     }
     
-    public static void determinantMatrixForm(double[][] mat) {
+    public static void matrixForm(double[][] mat, int type) throws Exception {
         int row = mat.length;
         int col = mat[0].length;
-        System.out.println("Matrix after reduction: ");
+        if (type == 1)
+            System.out.println("Matrix after REDUCTION: ");
+        else if (type == 2)
+            System.out.println("Matrix after ADJOINT INVERSE:");
+            
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 System.out.printf("%.3f ", mat[i][j]);
@@ -30,6 +34,9 @@ public class print {
             System.out.println();
         }
         System.out.println();
+
+        if (type == 2 || type == 3)
+            menu.backToMenu();
     }
 
     public static void solution(double[] solution, int type) throws Exception {

@@ -160,7 +160,7 @@ public class menu {
                 cofactorDeterminant.calculate();
                 break;
             case 2:
-                reductionDeterminant.functionDetReduct();
+                reductionDeterminant.calculate();
                 break;
             case 3:
                 mainMenu();
@@ -202,7 +202,7 @@ public class menu {
         }
         switch (choice) {
             case 1:
-                InverseAdj.functionInverseAdj();
+                adjInverse.calculate();
                 break;
             case 2:
                 InverseReduct.functionInverseReduct();

@@ -1,14 +1,14 @@
 package apps;
 
-import algorithm.reduction;
+import algorithm.adjointInverse;
 import utility.*;
 
-public class reductionDeterminant {
+public class adjInverse{
     public static void calculate() throws Exception {
         menu.border();
-        System.out.println("REDUCTION METHOD FOR DETERMINANT");
+        System.out.println("ADJOINT INVERSE METHOD");
         menu.border();
-
+        
         matrixData matrixData = inputMatrix.inputMatOnly();
         double[][] matrix = matrixData.getMatrix();
         int row = matrix.length;
@@ -19,8 +19,7 @@ public class reductionDeterminant {
             menu.backToMenu();
         }
 
-        double determinant = reduction.calculate(matrix, row);
-        print.matrixForm(matrix, 1);
-        print.determinant(determinant, 2);
+        double invMatrix[][] = adjointInverse.calculate(matrix);
+        print.matrixForm(invMatrix, 2);
     }
 }

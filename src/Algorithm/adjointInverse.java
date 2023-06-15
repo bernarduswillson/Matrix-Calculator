@@ -1,6 +1,6 @@
 package algorithm;
 
-public class inverseMatrix {
+public class adjointInverse {
     public static double[][] calculate(double[][] mat) {
         int row = mat.length;
         int col = mat[0].length;
@@ -10,7 +10,7 @@ public class inverseMatrix {
             return inverse;
         } else {
             double[][] cofactor = cofactor(mat);
-            inverse = multiplyByConst(transpose(cofactor), (1 / cofactorExpansion.calculate(mat)));
+            inverse = multiplyMatrix.multiplyByConst(transpose(cofactor), (1 / cofactorExpansion.calculate(mat)));
             return inverse;
         }
     }
@@ -67,17 +67,5 @@ public class inverseMatrix {
             }
         }
         return mat;
-    }
-
-    static double[][] multiplyByConst(double[][] mat, double k) {
-        int row = mat.length;
-        int col = mat[0].length;
-        double[][] mOut = new double[row][col];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                mOut[i][j] = mat[i][j] * k;
-            }
-        }
-        return mOut;
     }
 }
