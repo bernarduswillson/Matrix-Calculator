@@ -55,7 +55,7 @@ public class menu {
                 invMenu();
                 break;
             case 4:
-                PolinomInterpolate.functionPolinomInterpolate();
+                polinomInterpolate.calculate();
                 break;
             case 5:
                 BicubicInterpolate.functionBicubicInterpolate();

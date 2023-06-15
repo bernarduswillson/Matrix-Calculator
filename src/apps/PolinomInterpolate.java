@@ -4,76 +4,78 @@ import java.util.Scanner;
 
 import algorithm.backwardElimination;
 import algorithm.forwardElimination;
-import utility.inputMatrix;
-import utility.menu;
-public class PolinomInterpolate {
-    
-    public static void functionPolinomInterpolate() throws Exception {
+import algorithm.backSubstitution;
+import utility.*;
+
+public class polinomInterpolate {
+    public static void calculate() throws Exception {
+        menu.border();
+        System.out.println("POLINOMIAL INTERPOLATION");
+        menu.border();
+
         Scanner input = new Scanner(System.in);
-        gaussSLE obe1 = new gaussSLE();
-        gaussJordanSLE obe2 = new gaussJordanSLE();
-        menu.border();
-        System.out.println("PROGRAM INTERPOLASI POLINOM\n");
-        menu.border();
         int choice = inputMatrix.inputMenu();
-        if (choice == 1)
-        {
-            System.out.print("Masukkan jumlah titik: ");
-            int N = input.nextInt();
+        double[][] matrix = new double[0][0];
+        double[] matrixAns = new double[0];
+        int row = 0;
+        int col = 0;
+
+        if (choice == 1) {
+            System.out.print("Insert the number of data points:");
+            row = input.nextInt();
+            col = row;
             System.out.println();
-            double[][] Matrix = new double[N][N];
-            double[] MatrixAns = new double[N];
-            double[] X = new double[N];
-            double[] Y = new double[N];
-            for (int i = 0; i < N; i++) {
-                System.out.print("Masukkan nilai X"+(i+1)+": ");
+            matrix = new double[row][col];
+            matrixAns = new double[row];
+            double[] X = new double[row];
+            double[] Y = new double[row];
+
+            for (int i = 0; i < row; i++) {
+                System.out.print("Insert X" + (i + 1) + " coordinate: ");
                 X[i] = input.nextDouble();
-                System.out.print("Masukkan nilai Y"+(i+1)+": ");
+                System.out.print("Insert Y" + (i + 1) + " coordinate: ");
                 Y[i] = input.nextDouble();
             }
             System.out.println();
-            System.out.print("Masukkan nilai X yang akan ditaksir: ");
-            double x = input.nextDouble();
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
-                    Matrix[i][j] = Math.pow(X[i], j);
+
+            for (int i = 0; i < row; i++) {
+                for (int j = 0; j < row; j++) {
+                    matrix[i][j] = Math.pow(X[i], j);
                 }
-                MatrixAns[i] = Y[i];
+                matrixAns[i] = Y[i];
             }
             System.out.println();
-            forwardElimination.calculate(Matrix, MatrixAns);
-            backwardElimination.calculate(Matrix, MatrixAns);
-            System.out.println();
-            double Sum = 0;
-            for (int i = 0; i < N; i++) {
-                Sum += MatrixAns[i] * Math.pow(x, i);
-            }
-            System.out.printf("P("+x+") = %.4f",Sum);
+
+        } else if (choice == 2) {
+            double[][] matrixFile = inputMatrix.readFile();
+            row = matrixFile.length;
+            col = matrixFile[0].length;
+            matrix = inputMatrix.convertMatrix(matrixFile, row, col);
+            matrixAns = inputMatrix.convertMatrixAns(matrixFile, row, col);
+
+            col--;
         }
-        else if (choice == 2)
-        {
-            double[][] Matrix = inputMatrix.readFile();
-            int ROW = Matrix.length;
-            int COL = Matrix[0].length;
-            double[][] MatrixEq = Regression.seperateMatrix(Matrix, ROW, COL);
-            double[] MatrixAns = Regression.seperateMatrix1(Matrix, ROW, COL);
-            System.out.print("Masukkan nilai X yang akan ditaksir: ");
-            double x = input.nextDouble();
-            System.out.println();
-            forwardElimination.calculate(Matrix, MatrixAns);
-            backwardElimination.calculate(Matrix, MatrixAns);
-            System.out.println();
-            double Sum = 0;
-            for (int i = 0; i < Matrix.length; i++) {
-                Sum += MatrixAns[i] * Math.pow(x, i);
-            }
-            System.out.printf("P("+x+") = %.4f",Sum);
+
+        if (row != col) {
+            System.out.println("Cannot be solved because the matrix is not square!\n");
+            menu.backToMenu();
         }
-        else
-        {
-            System.out.println("Input tidak valid!");
+
+        System.out.print("Insert the value of X to be estimated: ");
+        double x = input.nextDouble();
+        forwardElimination.calculate(matrix, matrixAns);
+        backwardElimination.calculate(matrix, matrixAns);
+        print.echelonForm(matrix, matrixAns, 2);
+        double[] solution = backSubstitution.calculate(matrix, matrixAns);
+        print.solution(solution, 5);
+
+        double sum = 0;
+        for (int i = 0; i < row; i++) {
+            sum += matrixAns[i] * Math.pow(x, i);
         }
+        System.out.printf("P(" + x + ") = %.4f\n", sum);
+        System.out.println();
+
         menu.backToMenu();
     }
 }
-    

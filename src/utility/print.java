@@ -66,7 +66,7 @@ public class print {
 
         if (type == 1)
             System.out.println("Solution using GAUSS:");
-        else if (type == 2)
+        else if (type == 2 || type == 5)
             System.out.println("Solution using GAUSS-JORDAN:");
         else if (type == 3)
             System.out.println("Solution using INVERSE:");
@@ -77,7 +77,9 @@ public class print {
             System.out.printf("X%d = %.4f\n", (i + 1), solution[i]);
         }
         System.out.println();
-        menu.backToMenu();
+
+        if (type == 1 || type == 2 || type == 3 || type == 4)
+            menu.backToMenu();
     }
 
     public static void determinant(double determinant, int type) throws Exception{
